@@ -44,6 +44,83 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 .portfolio-dark dd { color: #e3e3d8; }
 .portfolio-dark dl > div { border-color: var(--line); }
 .portfolio-dark noscript { display: block; padding: 20px; color: #f5e642; }
+.landing-hero {
+  position: relative;
+  isolation: isolate;
+  height: min(650px, calc(100svh - 180px));
+  min-height: 520px;
+  overflow: hidden;
+  background: #0c0c0c;
+  padding: 40px 48px 76px;
+  display: flex;
+  align-items: center;
+}
+.landing-art {
+  position: absolute;
+  z-index: -1;
+  right: 1%;
+  top: 12px;
+  width: 54%;
+  height: calc(100% - 70px);
+  object-fit: contain;
+  animation: studio-float 8s ease-in-out infinite;
+}
+.landing-copy { width: 46%; max-width: 560px; }
+.landing-copy .eyebrow { color: #b8b8ad; font-size: 11px; }
+.landing-logo { width: min(100%, 440px); aspect-ratio: 3 / 1; overflow: hidden; margin: 22px 0 18px; }
+.landing-logo img { width: 120%; max-width: none; height: auto; transform: translate(-8.5%, -26%); object-fit: contain; }
+.landing-tagline { font-size: 30px; font-weight: 600; line-height: 1.55; }
+.landing-description { margin-top: 18px; color: #b8b8ad; font-size: 13px; line-height: 1.95; }
+.landing-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.landing-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; padding: 0 18px; border-radius: 4px; border: 1px solid #f5e642; font-size: 13px; font-weight: 600; transition: background .2s, color .2s; }
+.landing-button.primary { background: #f5e642; color: #0c0c0c; }
+.landing-button.primary:hover { background: #fff387; }
+.landing-button.secondary { color: #f5e642; background: #0c0c0c; border-color: #5a5940; }
+.landing-button.secondary:hover { background: #f5e642; color: #0c0c0c; }
+.landing-button svg { width: 18px; height: 18px; }
+.landing-baseline { position: absolute; left: 48px; right: 48px; bottom: 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 20px; font-size: 10px; color: #a9a9a0; }
+.landing-baseline a { color: #f5e642; display: inline-flex; align-items: center; gap: 18px; }
+.landing-baseline svg { width: 16px; height: 16px; }
+@keyframes studio-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@media (min-width: 1600px) {
+  .landing-hero { padding-left: 80px; padding-right: 80px; }
+  .landing-logo { width: 500px; }
+  .landing-tagline { font-size: 34px; }
+  .landing-art { right: 4%; width: 50%; }
+  .landing-baseline { left: 80px; right: 80px; }
+}
+@media (min-width: 851px) and (max-width: 1000px) {
+  .landing-hero { padding-left: 30px; padding-right: 30px; }
+  .landing-tagline { font-size: 26px; }
+  .landing-baseline { left: 30px; right: 30px; }
+  .landing-capabilities { display: none; }
+}
+@media (max-width: 850px) {
+  .landing-hero { height: auto; min-height: 0; display: block; padding: 24px 20px 300px; }
+  .landing-copy { width: 100%; max-width: 460px; }
+  .landing-logo { width: min(100%, 310px); margin: 16px 0 12px; }
+  .landing-tagline { font-size: 24px; }
+  .landing-description { font-size: 12px; margin-top: 14px; }
+  .landing-actions { margin-top: 20px; }
+  .landing-button { font-size: 12px; min-height: 44px; padding: 0 16px; gap: 22px; }
+  .landing-art { top: auto; bottom: 52px; right: 0; width: 100%; height: 230px; }
+  .landing-baseline { left: 20px; right: 20px; bottom: 18px; padding-top: 14px; font-size: 8px; gap: 12px; }
+  .landing-capabilities { display: none; }
+  .landing-baseline a { gap: 8px; }
+}
+@media (max-width: 360px) {
+  .landing-logo { width: 260px; }
+  .landing-tagline { font-size: 21px; }
+  .landing-description { font-size: 11px; }
+  .landing-hero { padding-bottom: 270px; }
+  .landing-art { height: 210px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-art { animation: none; }
+}
 @media (max-width: 700px) {
   .portfolio-dark .site-header { height: 84px; }
   .portfolio-dark .brand { width: 98px; height: 44px; }

@@ -31,7 +31,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
     <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css?v=20261002-5">
+    <link rel="preload" as="image" href="assets/pd-hero-3d.png">
+    <link rel="stylesheet" href="styles.css?v=20261002-7">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script src="drafts.js?v=20261002-4" defer></script>
   </head>
@@ -42,19 +43,23 @@
       <a class="inquiry" href="mailto:kokz.studio@gmail.com">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a>
     </header>
     <main>
-      <section class="hero hero-c" aria-labelledby="hero-title">
-        <div class="creator-intro">
-          <p class="eyebrow">YOUTUBE FIRST. STORY ALWAYS.</p>
-          <h1 id="hero-title">KOKZ<br>STUDIO<span class="period">*</span></h1>
-          <p class="creator-tagline">기획부터 편집, 촬영,<br>이미지 제작까지.</p>
-          <p class="creator-note">영상 PD 권오교 / YouTube & Brand Content</p>
+      <section class="landing-hero" aria-labelledby="hero-title">
+        <img class="landing-art" src="assets/pd-hero-3d.png" alt="노란색 시네마 카메라, 슬레이트와 편집 타임라인의 입체 그래픽" width="1280" height="1280" fetchpriority="high">
+        <div class="landing-copy">
+          <p class="eyebrow">VIDEO PD / KWON OH GYO</p>
+          <h1 class="landing-logo" id="hero-title"><img src="assets/kokz-studio-logo-yellow.png" alt="KOKZ Studio" width="1774" height="887"></h1>
+          <p class="landing-tagline">기획부터 편집, 촬영,<br>이미지 제작까지.</p>
+          <p class="landing-description">당신의 이야기를, 끝까지 보고 싶은 영상으로.<br>유튜브 콘텐츠와 브랜드 영상을 만듭니다.</p>
+          <div class="landing-actions">
+            <a class="landing-button primary" href="#work">작업물 보기 <i data-lucide="arrow-down-right"></i></a>
+            <a class="landing-button secondary" href="mailto:kokz.studio@gmail.com">제작 문의 <i data-lucide="arrow-up-right"></i></a>
+          </div>
         </div>
-        <div class="creator-gallery">
-          <figure class="creator-wide"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1100&q=85" alt="라이프스타일 콘텐츠 샘플 공간" fetchpriority="high"><figcaption>LIFESTYLE / YOUTUBE</figcaption></figure>
-          <figure class="creator-tall"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=85" alt="촬영용 카메라 샘플"><figcaption>BEHIND THE SCENES</figcaption></figure>
-          <a class="creator-work" href="#work">이야기를<br>영상으로.<span><i data-lucide="arrow-down-right"></i></span></a>
+        <div class="landing-baseline">
+          <span>YOUTUBE & BRAND CONTENT</span>
+          <span class="landing-capabilities">기획 / 촬영 / 편집 / 이미지 제작</span>
+          <a href="#work">SELECTED WORK <i data-lucide="arrow-down"></i></a>
         </div>
-        <div class="creator-baseline"><span>당신의 채널에, 다음 이야기를.</span><span>기획 / 촬영 / 편집 / 썸네일</span></div>
       </section>
       <section class="work-section" id="work" aria-labelledby="work-title">
         <div class="section-title"><div><p class="eyebrow">THE PORTFOLIO</p><h2 id="work-title">Selected work<span class="accent"> /</span></h2></div><span class="sample-label">샘플 작업 이미지 · 실제 영상 준비 중</span></div>
