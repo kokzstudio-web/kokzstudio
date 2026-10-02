@@ -1,0 +1,4 @@
+Generation mode: built-in image_gen edit; transparent_background=true.
+Reference: kokz-studio-logo-v1.png.
+
+Edit this existing KOKZ STUDIO logo for a black-and-yellow website. Preserve EXACTLY its letterforms, word spelling, geometry, placement, proportions and STUDIO subtitle, and the play-triangle in O. Change only colors: every charcoal KOKZ and STUDIO letter becomes solid vivid yellow #F5E642. The existing coral play triangle becomes white #FFFFFF with the surrounding O still yellow. Keep the background genuinely fully transparent, preserving alpha. Flat crisp two-color logo, no shadow, no gradient, no new symbols or text. Trim excess transparent margins so the same whole complete logo fits into a compact landscape canvas with only a small safe margin around it. Output a single finished transparent PNG.

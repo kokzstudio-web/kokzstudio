@@ -37,6 +37,10 @@ function openProject(sample) {
   dialog.showModal();
 }
 function selectVersion(version, updateUrl = true) {
+  if (!document.querySelector('.comparison')) {
+    refreshIcons();
+    return;
+  }
   if (!references[version]) version = 'a';
   document.body.dataset.version = version;
   document.querySelectorAll('[data-hero]').forEach(hero => { hero.hidden = hero.dataset.hero !== version; });
