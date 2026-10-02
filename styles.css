@@ -31,10 +31,10 @@ body.portfolio-dark {
 .portfolio-dark .project-open { background: #f5e642; color: #0c0c0c; }
 .portfolio-dark .project-caption h3 { color: #eaeae3; }
 .portfolio-dark .project-trigger:hover h3 { color: #f5e642; }
-.portfolio-dark .about-section { background: #141413; border-block: 1px solid var(--line); }
+body.portfolio-dark .about-section { background: #141413; border-block: 1px solid var(--line); }
 .portfolio-dark .about-section div > p { color: #bcbcb3; }
 .portfolio-dark .signature { color: #e5e5dd; }
-.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px solid var(--line); }
+body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px solid var(--line); }
 .portfolio-dark .contact-email { border-color: #f5e642; }
 .portfolio-dark footer { border-top: 1px solid var(--line); color: var(--muted); }
 .portfolio-dark footer a { color: #f5e642; }
