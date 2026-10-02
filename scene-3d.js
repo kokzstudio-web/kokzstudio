@@ -136,9 +136,10 @@ async function startScene() {
   controls.minPolarAngle = 0.55;
   controls.maxPolarAngle = 1.9;
   controls.touches.ONE = THREE.TOUCH.ROTATE;
-  controls.touches.TWO = THREE.TOUCH.ROTATE;
+  controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
   const homeDirection = new THREE.Vector3(3.3, 2.1, 6.3).normalize();
   let distance = 8;
+  let pixelCheckPending = true;
   function resize() {
     const { width, height } = host.getBoundingClientRect();
     if (!width || !height) return;
@@ -151,6 +152,7 @@ async function startScene() {
     camera.position.copy(center).addScaledVector(direction.lengthSq() ? direction : homeDirection, distance);
     renderer.setSize(width, height, false);
     controls.update();
+    pixelCheckPending = true;
   }
   camera.position.copy(center).addScaledVector(homeDirection, distance);
   const resizeObserver = new ResizeObserver(resize);
@@ -178,13 +180,14 @@ async function startScene() {
     controls.target.copy(center);
     lastInteraction = performance.now();
     controls.update();
+    pixelCheckPending = true;
   }
   host.querySelector('[data-scene-reset]').addEventListener('click', reset);
   controls.addEventListener('start', () => {
     lastInteraction = performance.now();
     canvas.dataset.interactions = String(Number(canvas.dataset.interactions) + 1);
   });
-  controls.addEventListener('end', () => { lastInteraction = performance.now(); });
+  controls.addEventListener('end', () => { lastInteraction = performance.now(); pixelCheckPending = true; });
   let pointerStart;
   canvas.addEventListener('pointerdown', event => { pointerStart = {x:event.clientX, y:event.clientY, time:performance.now()}; });
   canvas.addEventListener('pointerup', event => {
@@ -223,6 +226,20 @@ async function startScene() {
     root.position.y = !paused ? Math.sin(now * 0.001) * 0.035 : 0;
     playhead.position.x = !paused ? -0.07 + Math.sin(now * 0.0008) * 0.5 : -0.07;
     renderer.render(scene, camera);
+    if (pixelCheckPending) {
+      const gl = renderer.getContext();
+      const pixels = new Uint8Array(canvas.width * canvas.height * 4);
+      gl.readPixels(0, 0, canvas.width, canvas.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+      let colored = 0;
+      let signature = 0;
+      for (let i = 0; i < pixels.length; i += 64) {
+        if (pixels[i + 3] && Math.max(pixels[i], pixels[i + 1], pixels[i + 2]) > 20) colored++;
+        signature = (signature + pixels[i] * 3 + pixels[i + 1] * 5 + pixels[i + 2] * 7) >>> 0;
+      }
+      canvas.dataset.coloredSamples = String(colored);
+      canvas.dataset.pixelSignature = String(signature);
+      pixelCheckPending = false;
+    }
     canvas.dataset.view = camera.position.toArray().map(value => value.toFixed(3)).join(',');
     if (!host.dataset.ready) {
       host.dataset.ready = 'true';
