@@ -1,6 +1,8 @@
 // Visibility checked in YouTube Studio on 2026-10-06. Drafts are excluded.
 window.portfolioVideos = [
-  // Selected work first, led by three information videos.
+  // Selected work first, led by the two pig-model surgery videos.
+  ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
+  ['TWMJEfYQzvw','의학 정보) 여유증 돼지 모의수술 전체프로세스','7:22'],
   ['SDKnAsC2eGk','의학 정보) NEW 전립선비대증 신의료기술 국내 도입! 리줌 시스템','8:13'],
   ['y_8N1Mc4Fjo','의학 정보) 5S복합수술 수술당일 진행 과정 소개','4:40'],
   ['qhyQmPfGF0g','의학 정보) 200명의 대만의사 한국에서 음경확대술을 배우다','2:26'],
@@ -10,9 +12,7 @@ window.portfolioVideos = [
   ['bNSkCNdqVRk','의학 예능) 비뇨의학과 의사가 인물퀴즈를 한다면？！','4:26'],
   ['iOKOljW_EMo',"의학 다큐) '한국 의료 수준은 나를 흥분 되게 만든다' 유럽의사 한국 체험기",'10:13'],
   ['XnbwjZyNPAc',"의학 예능) 조금 늦은 의사들의 'MBTI' 전격 공개! 과연 의사들은 모두 T일까？！",'5:05'],
-  ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
   ['rL3GEo-ZO9g','의학 다큐) 41살 확대남','7:19'],
-  ['TWMJEfYQzvw','의학 정보) 여유증 돼지 모의수술 전체프로세스','7:22'],
   ['xbFO2O29Y10','의학 정보) 실제 수술 영상전립선 수술 + 음경 확대 이후 6년만에 추가 확대 수술','7:04'],
   ['9gbe8A3MBRA','의학 다큐) 남자의 자격 이혼 후 음경확대술을 선택한 남자ㅣ나는 확대남이다','12:53'],
   ['fP86e9X46IA','의학 정보) 전립선비대증 환자들이 가장 많이 묻는 질문','10:06'],
