@@ -12,7 +12,8 @@ const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(vide
   const category = prefix.includes('다큐') ? 'doc' : prefix.includes('홍보') ? 'promotion' : prefix.includes('예능') ? 'entertainment' : 'info';
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};
 }) : draftSamples;
-const samples = [...(window.portfolioLandings || []), ...videoSamples];
+const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
+const samples = [...(window.portfolioLandings || []), ...weddingSamples, ...videoSamples];
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
 const dialog = document.querySelector('#project-dialog');
@@ -23,11 +24,15 @@ const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({'&'
 function refreshIcons() { window.lucide?.createIcons(); }
 function renderProjects() {
   const visible = samples.filter(sample => activeFilter === 'all' || sample.category === activeFilter);
+  const channel = document.querySelector('.wedding-channel');
+  if (channel) channel.hidden = activeFilter !== 'wedding';
+  const total = document.querySelector('[data-filter="all"] span');
+  if (total) total.textContent = String(samples.length).padStart(2,'0');
   projects.replaceChildren();
   visible.slice(0, window.portfolioVideos ? visibleLimit : visible.length).forEach(sample => {
     const article = document.createElement('article');
     article.className = sample.asset ? 'project project-landing' : 'project';
-    article.innerHTML = `<button class="project-trigger" type="button" aria-label="${escapeHtml(sample.title)} ${sample.videoId ? '영상 보기' : sample.asset ? '디자인 보기' : '샘플 상세 보기'}"><div class="project-image"><img src="${imageUrl(sample)}" alt="${escapeHtml(sample.alt)}" loading="lazy"><span class="project-open"><i data-lucide="${sample.videoId ? 'play' : sample.asset ? 'expand' : 'arrow-up-right'}"></i></span>${sample.videoId ? `<span class="video-duration">${sample.duration}</span>` : ''}</div><div class="project-caption"><div><p class="project-category">${sample.label}</p><h3>${escapeHtml(sample.title)}</h3><p class="project-note">${sample.videoId ? 'YOUTUBE' : sample.asset ? sample.scope : '샘플 이미지 · ' + sample.scope}</p></div><span class="project-index">${sample.id}</span></div></button>`;
+    article.innerHTML = `<button class="project-trigger" type="button" aria-label="${escapeHtml(sample.title)} ${sample.videoId ? '영상 보기' : sample.asset ? '디자인 보기' : '샘플 상세 보기'}"><div class="project-image"><img src="${imageUrl(sample)}" alt="${escapeHtml(sample.alt)}" loading="lazy"><span class="project-open"><i data-lucide="${sample.videoId ? 'play' : sample.asset ? 'expand' : 'arrow-up-right'}"></i></span>${sample.videoId ? `<span class="video-duration">${sample.duration}</span>` : ''}</div><div class="project-caption"><div><p class="project-category">${sample.label}</p><h3>${escapeHtml(sample.title)}</h3><p class="project-note">${sample.videoId ? escapeHtml(sample.source || 'YOUTUBE') : sample.asset ? sample.scope : '샘플 이미지 · ' + sample.scope}</p></div><span class="project-index">${sample.id}</span></div></button>`;
     article.querySelector('button').addEventListener('click', () => openProject(sample));
     projects.append(article);
   });
@@ -60,7 +65,7 @@ function openProject(sample) {
   }
   if (sample.videoId) {
     document.querySelector('#dialog-title').textContent = sample.title;
-    document.querySelector('#dialog-category').textContent = `${sample.label} / ${sample.duration}`;
+    document.querySelector('#dialog-category').textContent = `${sample.label} / ${sample.duration}${sample.source ? ' / ' + sample.source : ''}`;
     document.querySelector('#youtube-link').href = `https://www.youtube.com/watch?v=${sample.videoId}`;
     const iframe = document.createElement('iframe');
     iframe.title = sample.title;
