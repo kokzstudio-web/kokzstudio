@@ -6,14 +6,14 @@ const draftSamples = [
   {id:'05', category:'brand', label:'BRAND FILM / SPACE', title:'공간이 가진 분위기를 담다', image:'photo-1497366754035-f200968a6e72', alt:'밝은 실내 공간', scope:'공간 촬영 · 편집 · 색보정', description:'공간과 라이프스타일 브랜드를 위한 영상의 샘플 구성입니다. 공간의 디테일과 실제 경험을 함께 전하는 방향입니다.'},
   {id:'06', category:'image', label:'IMAGE / KEY VISUAL', title:'이야기를 시작하는 한 장', image:'photo-1485846234645-a62644f84728', alt:'영화 촬영 장비', scope:'썸네일 기획 · 이미지 제작', description:'썸네일과 콘텐츠 키비주얼의 샘플 구성입니다. 영상의 메시지를 한눈에 전달하는 이미지 제작 방향을 보여줍니다.'}
 ];
-const categories = {info:'의학 정보', doc:'다큐멘터리', entertainment:'예능 · 인터뷰', promotion:'홍보 영상'};
+const categories = {info:'정보', doc:'다큐멘터리', entertainment:'예능 · 인터뷰', promotion:'홍보 영상'};
 const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId)).map((video,index) => {
   const prefix = video.title.split(')')[0];
   const category = prefix.includes('다큐') ? 'doc' : prefix.includes('홍보') ? 'promotion' : prefix.includes('예능') ? 'entertainment' : 'info';
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};
 }) : draftSamples;
 const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
-const samples = [...(window.portfolioLandings || []), ...videoSamples, ...weddingSamples];
+const samples = [...videoSamples, ...weddingSamples, ...(window.portfolioLandings || [])];
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
 const dialog = document.querySelector('#project-dialog');
