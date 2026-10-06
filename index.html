@@ -32,9 +32,10 @@
     <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="preload" as="image" href="assets/pd-hero-3d.png">
-    <link rel="stylesheet" href="styles.css?v=20261002-11">
+    <link rel="stylesheet" href="styles.css?v=20261006-12">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
-    <script src="drafts.js?v=20261002-4" defer></script>
+    <script src="portfolio-data.js?v=20261006-12" defer></script>
+    <script src="drafts.js?v=20261006-12" defer></script>
   </head>
   <body data-version="c" class="portfolio-dark">
     <header class="site-header" id="top">
@@ -61,12 +62,13 @@
         </div>
       </section>
       <section class="work-section" id="work" aria-labelledby="work-title">
-        <div class="section-title"><div><p class="eyebrow">THE PORTFOLIO</p><h2 id="work-title">Selected work<span class="accent"> /</span></h2></div><span class="sample-label">샘플 작업 이미지 · 실제 영상 준비 중</span></div>
+        <div class="section-title"><div><p class="eyebrow">THE PORTFOLIO</p><h2 id="work-title">Selected work<span class="accent"> /</span></h2></div><span class="sample-label">YOUTUBE PORTFOLIO</span></div>
         <div class="work-toolbar">
-          <div class="filters" role="group" aria-label="작업물 주제 필터"><button type="button" data-filter="all" aria-pressed="true">전체 <span>06</span></button><button type="button" data-filter="youtube" aria-pressed="false">유튜브</button><button type="button" data-filter="brand" aria-pressed="false">브랜드 필름</button><button type="button" data-filter="short" aria-pressed="false">숏폼</button><button type="button" data-filter="image" aria-pressed="false">이미지 제작</button></div>
-          <span class="work-count" aria-live="polite">6 projects</span>
+          <div class="filters" role="group" aria-label="작업물 주제 필터"><button type="button" data-filter="all" aria-pressed="true">전체 <span>85</span></button><button type="button" data-filter="info" aria-pressed="false">의학 정보</button><button type="button" data-filter="doc" aria-pressed="false">다큐멘터리</button><button type="button" data-filter="entertainment" aria-pressed="false">예능 · 인터뷰</button><button type="button" data-filter="promotion" aria-pressed="false">홍보 영상</button></div>
+          <span class="work-count" aria-live="polite">85 videos</span>
         </div>
         <div class="projects" id="projects"></div><p class="no-projects" hidden>해당 주제의 작업물이 없습니다.</p>
+        <button class="load-more" type="button" hidden>더 보기 <i data-lucide="plus"></i></button>
       </section>
       <section class="about-section" id="about" aria-labelledby="about-title">
         <p class="eyebrow">BEHIND KOKZ</p>
@@ -89,8 +91,8 @@
     </main>
     <footer><span>© 2026 KOKZ Studio. All rights reserved.</span><a href="#top">BACK TO TOP <i data-lucide="arrow-up"></i></a></footer>
     <dialog id="project-dialog" aria-labelledby="dialog-title">
-      <button class="dialog-close" type="button" aria-label="닫기" title="닫기"><i data-lucide="x"></i></button><img id="dialog-image" alt="">
-      <div class="dialog-copy"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><dl><div><dt>제작 범위</dt><dd id="dialog-scope"></dd></div><div><dt>상태</dt><dd>구성 예시 · 실제 작업물 아님</dd></div></dl><p class="dialog-notice">실제 유튜브 영상 연결 전입니다.</p><a class="inquiry" href="mailto:kokz.studio@gmail.com">비슷한 프로젝트 문의 <i data-lucide="arrow-up-right"></i></a></div>
+      <button class="dialog-close" type="button" aria-label="닫기" title="닫기"><i data-lucide="x"></i></button><img id="dialog-image" alt="" hidden><div id="dialog-player" class="video-player"></div>
+      <div class="dialog-copy"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description" hidden></p><p id="dialog-scope" hidden></p><a id="youtube-link" class="video-link" target="_blank" rel="noopener noreferrer">YouTube에서 보기 <i data-lucide="external-link"></i></a><a class="inquiry" href="mailto:kokz.studio@gmail.com">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a></div>
     </dialog>
     <noscript>작업물 목록을 보려면 JavaScript를 활성화해주세요. 문의: <a href="mailto:kokz.studio@gmail.com">kokz.studio@gmail.com</a></noscript>
   </body>
