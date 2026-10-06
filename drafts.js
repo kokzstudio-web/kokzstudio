@@ -125,6 +125,7 @@ document.querySelectorAll('.filters button').forEach(button => button.addEventLi
   renderProjects();
 }));
 document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+dialog.querySelector('a[href="#contact"]')?.addEventListener('click', () => dialog.close());
 dialog.addEventListener('close', () => document.querySelector('#dialog-player')?.replaceChildren());
 document.querySelector('.load-more')?.addEventListener('click', () => {
   const previousCount = projects.children.length;

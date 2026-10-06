@@ -33,17 +33,17 @@
     <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="preload" as="image" href="assets/pd-hero-3d.png">
-    <link rel="stylesheet" href="styles.css?v=20261006-18">
+    <link rel="stylesheet" href="styles.css?v=20261006-22">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script src="portfolio-data.js?v=20261006-15" defer></script>
     <script src="wedding-data.js?v=20261006-17" defer></script>
-    <script src="drafts.js?v=20261006-21" defer></script>
+    <script src="drafts.js?v=20261006-22" defer></script>
   </head>
   <body data-version="c" class="portfolio-dark">
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="KOKZ Studio 홈"><img src="assets/kokz-studio-logo-yellow.png" alt="KOKZ Studio" width="1774" height="887"></a>
       <nav aria-label="주요 메뉴"><a href="#work">작업물</a><a href="#about">소개</a><a href="#services">제작 범위</a></nav>
-      <a class="inquiry" href="mailto:kokz.studio@gmail.com">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a>
+      <a class="inquiry" href="#contact">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a>
     </header>
     <main>
       <section class="landing-hero" aria-labelledby="hero-title">
@@ -54,7 +54,7 @@
           <p class="landing-description">당신의 이야기를, 끝까지 보고 싶은 영상으로.<br>유튜브 콘텐츠와 브랜드 영상을 만듭니다.</p>
           <div class="landing-actions">
             <a class="landing-button primary" href="#work">작업물 보기 <i data-lucide="arrow-down-right"></i></a>
-            <a class="landing-button secondary" href="mailto:kokz.studio@gmail.com">제작 문의 <i data-lucide="arrow-up-right"></i></a>
+            <a class="landing-button secondary" href="#contact">제작 문의 <i data-lucide="arrow-up-right"></i></a>
           </div>
         </div>
         <div class="landing-baseline">
@@ -96,14 +96,16 @@
       </section>
       <section class="contact-section" id="contact">
         <p class="eyebrow">LET'S MAKE SOMETHING GOOD.</p><h2>다음 이야기를<br>함께 만들어볼까요?</h2>
-        <a class="contact-email" href="mailto:kokz.studio@gmail.com">kokz.studio@gmail.com <i data-lucide="arrow-up-right"></i></a>
-        <button class="copy-email" type="button" title="이메일 주소 복사" aria-label="이메일 주소 복사"><i data-lucide="copy"></i></button><p class="copy-status" role="status"></p>
+        <div class="contact-methods">
+          <div class="contact-method"><p class="contact-label">전화 문의</p><a class="contact-value" href="tel:+821063516387"><i data-lucide="phone"></i><span>010-6351-6387</span></a></div>
+          <div class="contact-method"><p class="contact-label">구글 이메일 문의</p><div class="contact-email-row"><a class="contact-value" href="mailto:kokz.studio@gmail.com"><i data-lucide="mail"></i><span>kokz.studio@gmail.com</span></a><button class="copy-email" type="button" title="이메일 주소 복사" aria-label="이메일 주소 복사"><i data-lucide="copy"></i></button></div><p class="copy-status" role="status"></p></div>
+        </div>
       </section>
     </main>
     <footer><span>© 2026 KOKZ Studio. All rights reserved.</span><a href="#top">BACK TO TOP <i data-lucide="arrow-up"></i></a></footer>
     <dialog id="project-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" type="button" aria-label="닫기" title="닫기"><i data-lucide="x"></i></button><img id="dialog-image" alt="" hidden><div id="dialog-player" class="video-player"></div>
-      <div class="dialog-copy"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description" hidden></p><p id="dialog-scope" hidden></p><a id="youtube-link" class="video-link" target="_blank" rel="noopener noreferrer">YouTube에서 보기 <i data-lucide="external-link"></i></a><a class="inquiry" href="mailto:kokz.studio@gmail.com">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a></div>
+      <div class="dialog-copy"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description" hidden></p><p id="dialog-scope" hidden></p><a id="youtube-link" class="video-link" target="_blank" rel="noopener noreferrer">YouTube에서 보기 <i data-lucide="external-link"></i></a><a class="inquiry" href="#contact">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a></div>
       <div id="dialog-landing" class="landing-detail" hidden><a id="landing-original" class="video-link" target="_blank" rel="noopener noreferrer">원본 이미지 <i data-lucide="external-link"></i></a><img id="landing-image" alt=""></div>
     </dialog>
     <noscript>작업물 목록을 보려면 JavaScript를 활성화해주세요. 문의: <a href="mailto:kokz.studio@gmail.com">kokz.studio@gmail.com</a></noscript>

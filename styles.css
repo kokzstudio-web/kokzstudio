@@ -149,6 +149,18 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 .wedding-channel svg { width: 16px; height: 16px; }
 .video-player.is-short { aspect-ratio: 9 / 16; width: min(100%, 360px); margin: 0 auto; }
 .portfolio-dark dialog.is-short { width: min(520px, calc(100% - 24px)); }
+.contact-methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; max-width: 1000px; }
+.contact-method { min-width: 0; padding-top: 20px; border-top: 1px solid var(--line); }
+.contact-label { margin-bottom: 12px; font-size: 12px; color: #bcbcb3; }
+.contact-value { display: inline-flex; align-items: center; gap: 12px; min-width: 0; font-size: 22px; line-height: 1.5; color: #f5e642; }
+.contact-value span { min-width: 0; overflow-wrap: anywhere; }
+.contact-value svg { flex-shrink: 0; width: 20px; height: 20px; }
+.contact-value:hover span { text-decoration: underline; }
+.contact-email-row { display: flex; align-items: center; gap: 8px; }
+.contact-email-row .contact-value { font-size: 20px; }
+.contact-email-row .copy-email { flex-shrink: 0; margin: 0; }
+@media (max-width: 850px) { .contact-methods { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 700px) { .contact-value { font-size: 20px; } .contact-email-row .contact-value { font-size: 18px; } }
 .channels-section { padding: 64px 48px; border-top: 1px solid var(--line); }
 .channel-list { margin-top: 28px; }
 .channel-reference { display: grid; grid-template-columns: 36px minmax(0, 1fr) 24px; align-items: center; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
