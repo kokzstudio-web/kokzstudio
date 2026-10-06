@@ -42,11 +42,18 @@ function openProject(sample) {
     document.querySelector('#dialog-category').textContent = `${sample.label} / ${sample.duration}`;
     document.querySelector('#youtube-link').href = `https://www.youtube.com/watch?v=${sample.videoId}`;
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube-nocookie.com/embed/${sample.videoId}?rel=0`;
     iframe.title = sample.title;
     iframe.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    const embed = new URL(`https://www.youtube-nocookie.com/embed/${sample.videoId}`);
+    embed.searchParams.set('rel', '0');
+    // Identify the embedding site for players in browsers and app WebViews.
+    if (location.protocol === 'https:' || location.protocol === 'http:') {
+      embed.searchParams.set('origin', location.origin);
+      embed.searchParams.set('widget_referrer', `${location.origin}${location.pathname}`);
+    }
+    iframe.src = embed.href;
     document.querySelector('#dialog-player').replaceChildren(iframe);
     dialog.showModal();
     return;
