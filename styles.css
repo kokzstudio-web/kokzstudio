@@ -118,8 +118,9 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 }
 .portfolio-dark .project-caption h3 { font-size: 18px; line-height: 1.6; overflow-wrap: anywhere; }
 .portfolio-dark .project-image { background: #181818; }
-.portfolio-dark .project-image img { object-fit: contain; }
-.portfolio-dark .project-trigger:hover .project-open { transform: none; }
+.portfolio-dark .project-image img { object-fit: cover; }
+.portfolio-dark .project-open { left: 50%; top: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); }
+.portfolio-dark .project-trigger:hover .project-open { transform: translate(-50%, -50%) scale(1.08); }
 .video-duration { position: absolute; bottom: 10px; right: 10px; padding: 3px 6px; color: white; background: #000c; font-size: 12px; border-radius: 3px; }
 .load-more { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 36px auto 0; padding: 14px 24px; border: 1px solid #5a5940; border-radius: 4px; background: transparent; color: #f5e642; }
 .load-more[hidden] { display: none; }
