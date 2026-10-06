@@ -147,6 +147,8 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 .wedding-channel span { font-size: 12px; color: #bcbcb3; }
 .wedding-channel a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #f5e642; }
 .wedding-channel svg { width: 16px; height: 16px; }
+.video-player.is-short { aspect-ratio: 9 / 16; width: min(100%, 360px); margin: 0 auto; }
+.portfolio-dark dialog.is-short { width: min(520px, calc(100% - 24px)); }
 @media (max-width: 700px) { .portfolio-dark .project-caption h3 { font-size: 16px; } .portfolio-dark .dialog-copy h2 { font-size: 18px; } }
 @media (max-width: 700px) {
   .portfolio-dark .site-header { height: 84px; }

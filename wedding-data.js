@@ -115,5 +115,5 @@ window.weddingVideos.push(...[
   ['sv0gUCR0oyE','로얄파크 Royal Park']
 ].map(([videoId,title],index) => ({
   videoId,title,duration:'SHORTS',id:`WS${String(index+1).padStart(2,'0')}`,
-  category:'wedding',label:'WEDDING SHORTS',alt:title,source:'에프아이필름 WED',visibility:'public'
+  category:'wedding',label:'WEDDING SHORTS',alt:title,source:'에프아이필름 WED',visibility:'public',kind:'short'
 })));

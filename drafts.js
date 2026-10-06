@@ -49,6 +49,8 @@ function openProject(sample) {
     document.querySelector('#dialog-player').hidden = !!sample.asset;
     document.querySelector('#youtube-link').hidden = !!sample.asset;
     dialog.classList.toggle('is-landing', !!sample.asset);
+    document.querySelector('#dialog-player').classList.toggle('is-short', sample.kind === 'short');
+    dialog.classList.toggle('is-short', sample.kind === 'short');
   }
   if (sample.asset) {
     document.querySelector('#dialog-title').textContent = sample.title;
@@ -65,7 +67,7 @@ function openProject(sample) {
   }
   if (sample.videoId) {
     document.querySelector('#dialog-title').textContent = sample.title;
-    document.querySelector('#dialog-category').textContent = `${sample.label} / ${sample.duration}${sample.source ? ' / ' + sample.source : ''}`;
+    document.querySelector('#dialog-category').textContent = `${sample.label}${sample.kind === 'short' ? '' : ' / ' + sample.duration}${sample.source ? ' / ' + sample.source : ''}`;
     document.querySelector('#youtube-link').href = `https://www.youtube.com/watch?v=${sample.videoId}`;
     const iframe = document.createElement('iframe');
     iframe.title = sample.title;
