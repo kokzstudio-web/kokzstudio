@@ -1,15 +1,15 @@
 // Visibility checked in YouTube Studio on 2026-10-06. Drafts are excluded.
 window.portfolioVideos = [
-  // Selected work first: documentary, brand, information, and entertainment.
+  // Selected work first, led by three information videos.
+  ['SDKnAsC2eGk','의학 정보) NEW 전립선비대증 신의료기술 국내 도입! 리줌 시스템','8:13'],
+  ['y_8N1Mc4Fjo','의학 정보) 5S복합수술 수술당일 진행 과정 소개','4:40'],
+  ['qhyQmPfGF0g','의학 정보) 200명의 대만의사 한국에서 음경확대술을 배우다','2:26'],
   ['X_UKrc4OtCY','의학 다큐) 평생 일만 해온 할아버지가 배우에 도전하는 이유┃다큐┃노년┃','9:17'],
   ['XGnEU-EeCyM','의학 홍보) 프라우드비뇨기과 소개 영상','1:16'],
-  ['SDKnAsC2eGk','의학 정보) NEW 전립선비대증 신의료기술 국내 도입! 리줌 시스템','8:13'],
   ['-vBXYunM8eM','의학 다큐) 건물주에서 빚더미 망해보고 알았다 늙은 남자가 계속 일하는 이유 ┃다큐┃노년┃','11:23'],
   ['bNSkCNdqVRk','의학 예능) 비뇨의학과 의사가 인물퀴즈를 한다면？！','4:26'],
-  ['qhyQmPfGF0g','의학 정보) 200명의 대만의사 한국에서 음경확대술을 배우다','2:26'],
   ['iOKOljW_EMo',"의학 다큐) '한국 의료 수준은 나를 흥분 되게 만든다' 유럽의사 한국 체험기",'10:13'],
   ['XnbwjZyNPAc',"의학 예능) 조금 늦은 의사들의 'MBTI' 전격 공개! 과연 의사들은 모두 T일까？！",'5:05'],
-  ['y_8N1Mc4Fjo','의학 정보) 5S복합수술 수술당일 진행 과정 소개','4:40'],
   ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
   ['rL3GEo-ZO9g','의학 다큐) 41살 확대남','7:19'],
   ['TWMJEfYQzvw','의학 정보) 여유증 돼지 모의수술 전체프로세스','7:22'],
