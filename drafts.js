@@ -13,7 +13,7 @@ const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(vide
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};
 }) : draftSamples;
 const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
-const samples = [...(window.portfolioLandings || []), ...weddingSamples, ...videoSamples];
+const samples = [...(window.portfolioLandings || []), ...videoSamples, ...weddingSamples];
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
 const dialog = document.querySelector('#project-dialog');
