@@ -7,17 +7,18 @@ const draftSamples = [
   {id:'06', category:'image', label:'IMAGE / KEY VISUAL', title:'이야기를 시작하는 한 장', image:'photo-1485846234645-a62644f84728', alt:'영화 촬영 장비', scope:'썸네일 기획 · 이미지 제작', description:'썸네일과 콘텐츠 키비주얼의 샘플 구성입니다. 영상의 메시지를 한눈에 전달하는 이미지 제작 방향을 보여줍니다.'}
 ];
 const categories = {info:'의학 정보', doc:'다큐멘터리', entertainment:'예능 · 인터뷰', promotion:'홍보 영상'};
-const samples = window.portfolioVideos ? window.portfolioVideos.filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId)).map((video,index) => {
+const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId)).map((video,index) => {
   const prefix = video.title.split(')')[0];
   const category = prefix.includes('다큐') ? 'doc' : prefix.includes('홍보') ? 'promotion' : prefix.includes('예능') ? 'entertainment' : 'info';
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};
 }) : draftSamples;
+const samples = [...(window.portfolioLandings || []), ...videoSamples];
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
 const dialog = document.querySelector('#project-dialog');
 let activeFilter = 'all';
 let visibleLimit = 12;
-const imageUrl = (sample, width = 1200) => sample.videoId ? `https://i.ytimg.com/vi/${sample.videoId}/hqdefault.jpg` : `https://images.unsplash.com/${sample.image}?auto=format&fit=crop&w=${width}&q=85`;
+const imageUrl = (sample, width = 1200) => sample.asset || (sample.videoId ? `https://i.ytimg.com/vi/${sample.videoId}/hqdefault.jpg` : `https://images.unsplash.com/${sample.image}?auto=format&fit=crop&w=${width}&q=85`);
 const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 function refreshIcons() { window.lucide?.createIcons(); }
 function renderProjects() {
@@ -25,18 +26,38 @@ function renderProjects() {
   projects.replaceChildren();
   visible.slice(0, window.portfolioVideos ? visibleLimit : visible.length).forEach(sample => {
     const article = document.createElement('article');
-    article.className = 'project';
-    article.innerHTML = `<button class="project-trigger" type="button" aria-label="${escapeHtml(sample.title)} ${sample.videoId ? '영상 보기' : '샘플 상세 보기'}"><div class="project-image"><img src="${imageUrl(sample)}" alt="${escapeHtml(sample.alt)}" loading="lazy"><span class="project-open"><i data-lucide="${sample.videoId ? 'play' : 'arrow-up-right'}"></i></span>${sample.videoId ? `<span class="video-duration">${sample.duration}</span>` : ''}</div><div class="project-caption"><div><p class="project-category">${sample.label}</p><h3>${escapeHtml(sample.title)}</h3><p class="project-note">${sample.videoId ? 'YOUTUBE' : '샘플 이미지 · ' + sample.scope}</p></div><span class="project-index">${sample.id}</span></div></button>`;
+    article.className = sample.asset ? 'project project-landing' : 'project';
+    article.innerHTML = `<button class="project-trigger" type="button" aria-label="${escapeHtml(sample.title)} ${sample.videoId ? '영상 보기' : sample.asset ? '디자인 보기' : '샘플 상세 보기'}"><div class="project-image"><img src="${imageUrl(sample)}" alt="${escapeHtml(sample.alt)}" loading="lazy"><span class="project-open"><i data-lucide="${sample.videoId ? 'play' : sample.asset ? 'expand' : 'arrow-up-right'}"></i></span>${sample.videoId ? `<span class="video-duration">${sample.duration}</span>` : ''}</div><div class="project-caption"><div><p class="project-category">${sample.label}</p><h3>${escapeHtml(sample.title)}</h3><p class="project-note">${sample.videoId ? 'YOUTUBE' : sample.asset ? sample.scope : '샘플 이미지 · ' + sample.scope}</p></div><span class="project-index">${sample.id}</span></div></button>`;
     article.querySelector('button').addEventListener('click', () => openProject(sample));
     projects.append(article);
   });
-  document.querySelector('.work-count').textContent = `${visible.length} ${window.portfolioVideos ? 'videos' : 'projects'}`;
+  document.querySelector('.work-count').textContent = `${visible.length} projects`;
   const more = document.querySelector('.load-more');
   if (more) more.hidden = visibleLimit >= visible.length;
   document.querySelector('.no-projects').hidden = visible.length > 0;
   refreshIcons();
 }
 function openProject(sample) {
+  const landing = document.querySelector('#dialog-landing');
+  if (landing) {
+    landing.hidden = !sample.asset;
+    document.querySelector('#dialog-player').hidden = !!sample.asset;
+    document.querySelector('#youtube-link').hidden = !!sample.asset;
+    dialog.classList.toggle('is-landing', !!sample.asset);
+  }
+  if (sample.asset) {
+    document.querySelector('#dialog-title').textContent = sample.title;
+    document.querySelector('#dialog-category').textContent = sample.scope;
+    document.querySelector('#landing-original').href = sample.asset;
+    const image = document.querySelector('#landing-image');
+    image.src = sample.asset;
+    image.alt = sample.alt;
+    image.width = sample.width;
+    image.height = sample.height;
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    return;
+  }
   if (sample.videoId) {
     document.querySelector('#dialog-title').textContent = sample.title;
     document.querySelector('#dialog-category').textContent = `${sample.label} / ${sample.duration}`;

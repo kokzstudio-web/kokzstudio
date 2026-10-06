@@ -86,3 +86,8 @@ window.portfolioVideos = [
   ['V8fyvtbMgqI','의학 다큐) 확대수술 다큐를 본 실제 부부의 반응ㅣ나는 확대남이다ㅣ음경확대술','11:47'],
   ['ml8Q9LOTb7s','의학 다큐) 확대수술을 할 수 밖에 없는 25세 대학생ㅣ음경확대수술 후기ㅣ나는 확대남이다','14:35']
 ].map(([videoId,title,duration]) => ({videoId,title,duration,visibility:'unlisted'}));
+window.portfolioLandings = [
+  {id:'LP01',category:'landing',label:'LANDING PAGE',title:'하이스트 복합수술 랜딩페이지',asset:'assets/landing-combined.png',alt:'하이스트 복합수술 소개 랜딩페이지 디자인',width:640,height:9006,scope:'랜딩페이지 디자인'},
+  {id:'LP02',category:'landing',label:'LANDING PAGE',title:'하이스트 여유증 랜딩페이지',asset:'assets/landing-gynecomastia.png',alt:'하이스트 여유증 소개 랜딩페이지 디자인',width:750,height:10920,scope:'랜딩페이지 디자인'},
+  {id:'LP03',category:'landing',label:'LANDING PAGE',title:'하이스트 여름 프로모션 랜딩페이지',asset:'assets/landing-event.jpg',alt:'하이스트 여름 할인 이벤트 랜딩페이지 디자인',width:721,height:3554,scope:'프로모션 디자인'}
+];
