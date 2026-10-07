@@ -31,6 +31,9 @@ function renderProjects() {
   if (elearning) elearning.hidden = activeFilter !== 'elearning';
   const mukbang = document.querySelector('.mukbang-channel');
   if (mukbang) mukbang.hidden = activeFilter !== 'mukbang';
+  const instagram = document.querySelector('.instagram-list');
+  const showingInstagram = !!instagram && activeFilter === 'instagram';
+  if (instagram) instagram.hidden = !showingInstagram;
   const total = document.querySelector('[data-filter="all"] span');
   if (total) total.textContent = String(samples.length).padStart(2,'0');
   projects.replaceChildren();
@@ -41,10 +44,10 @@ function renderProjects() {
     article.querySelector('button').addEventListener('click', () => openProject(sample));
     projects.append(article);
   });
-  document.querySelector('.work-count').textContent = `${visible.length} projects`;
+  document.querySelector('.work-count').textContent = showingInstagram ? '1 channel' : `${visible.length} projects`;
   const more = document.querySelector('.load-more');
   if (more) more.hidden = visibleLimit >= visible.length;
-  document.querySelector('.no-projects').hidden = visible.length > 0;
+  document.querySelector('.no-projects').hidden = showingInstagram || visible.length > 0;
   refreshIcons();
 }
 function openProject(sample) {
