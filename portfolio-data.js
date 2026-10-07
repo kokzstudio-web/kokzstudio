@@ -99,7 +99,10 @@ window.portfolioVideos = [
   ['GvsEvyQpvS8','e러닝) 당신이 옳다 정혜신박사','31:16'],
   ['xmT4zGeptug','e러닝) 교육청 교사케어','24:06'],
   ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48']
-].map(([videoId,title,duration]) => ({videoId,title,duration,visibility:'unlisted'}));
+].map(([videoId,title,duration]) => ({
+  videoId,title,duration,visibility:'unlisted',
+  ...(title.startsWith('e러닝)') ? {source:'RGB커뮤니케이션 재직 중 제작한 교육 콘텐츠'} : {})
+}));
 window.portfolioLandings = [
   {id:'LP01',category:'landing',label:'LANDING PAGE',title:'하이스트 복합수술 랜딩페이지',asset:'assets/landing-combined.png',alt:'하이스트 복합수술 소개 랜딩페이지 디자인',width:640,height:9006,scope:'랜딩페이지 디자인'},
   {id:'LP02',category:'landing',label:'LANDING PAGE',title:'하이스트 여유증 랜딩페이지',asset:'assets/landing-gynecomastia.png',alt:'하이스트 여유증 소개 랜딩페이지 디자인',width:750,height:10920,scope:'랜딩페이지 디자인'},
