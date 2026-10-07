@@ -26,6 +26,8 @@ function renderProjects() {
   const visible = samples.filter(sample => activeFilter === 'all' || sample.category === activeFilter);
   const channel = document.querySelector('.wedding-channel');
   if (channel) channel.hidden = activeFilter !== 'wedding';
+  const elearning = document.querySelector('.elearning-channel');
+  if (elearning) elearning.hidden = activeFilter !== 'elearning';
   const total = document.querySelector('[data-filter="all"] span');
   if (total) total.textContent = String(samples.length).padStart(2,'0');
   projects.replaceChildren();

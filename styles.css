@@ -141,12 +141,12 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 .portfolio-dark .is-landing { width: min(840px, calc(100% - 24px)); }
 .portfolio-dark .is-landing .dialog-copy { padding-bottom: 8px; }
 #dialog-image[hidden], #dialog-player[hidden], #dialog-landing[hidden], #youtube-link[hidden] { display: none; }
-.wedding-channel { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 0 0 24px; }
-.wedding-channel[hidden] { display: none; }
-.wedding-channel p { font-size: 14px; color: #eaeae3; margin-bottom: 6px; }
-.wedding-channel span { font-size: 12px; color: #bcbcb3; }
-.wedding-channel a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #f5e642; }
-.wedding-channel svg { width: 16px; height: 16px; }
+.category-note { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 0 0 24px; }
+.category-note[hidden] { display: none; }
+.category-note p { font-size: 14px; color: #eaeae3; margin-bottom: 6px; }
+.category-note span { font-size: 12px; color: #bcbcb3; }
+.category-note a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #f5e642; }
+.category-note svg { width: 16px; height: 16px; }
 .video-player.is-short { aspect-ratio: 9 / 16; width: min(100%, 360px); margin: 0 auto; }
 .portfolio-dark dialog.is-short { width: min(520px, calc(100% - 24px)); }
 .contact-methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; max-width: 1000px; }
