@@ -1,4 +1,4 @@
-// Visibility checked in YouTube Studio on 2026-10-06. Drafts are excluded.
+// Visibility checked in YouTube Studio on 2026-10-07. Drafts are excluded.
 window.portfolioVideos = [
   // Selected work first, led by the two pig-model surgery videos.
   ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
@@ -85,7 +85,20 @@ window.portfolioVideos = [
   ['M-WDbjdo1QI','의학 정보) 확대 재수술이 차 한대값？？？ 진실을 알려드립니다!','7:52'],
   ['BtNdiD95y04','의학 다큐) 확대수술 5번한 비뇨기과 실장ㅣ음경확대수술 후기ㅣ나는 확대남이다','9:07'],
   ['V8fyvtbMgqI','의학 다큐) 확대수술 다큐를 본 실제 부부의 반응ㅣ나는 확대남이다ㅣ음경확대술','11:47'],
-  ['ml8Q9LOTb7s','의학 다큐) 확대수술을 할 수 밖에 없는 25세 대학생ㅣ음경확대수술 후기ㅣ나는 확대남이다','14:35']
+  ['ml8Q9LOTb7s','의학 다큐) 확대수술을 할 수 밖에 없는 25세 대학생ㅣ음경확대수술 후기ㅣ나는 확대남이다','14:35'],
+  ['KB08XWxl9vI','e러닝) 한 학기 한 권 읽기','20:32'],
+  ['ID22Mnk48ns','e러닝) 파이썬','7:50'],
+  ['We8hncHqKwU','e러닝) 장애인식개선','10:18'],
+  ['cDUx0Rrykhw','e러닝) 장애공감교육','21:40'],
+  ['7-oqdtP6YUM','e러닝) 변호사 자금세탁방지','27:26'],
+  ['p3_le4SioDc','e러닝) 임베디드 SW엔지니어링 하드웨어 분석','27:36'],
+  ['_JI9RqFe72s','e러닝) 오피스','22:51'],
+  ['r5AUXb4YDOY','e러닝) 삼성SDS','2:36'],
+  ['rOZ7nf91vGo','e러닝) 보안엔지니어링 21 보안위협 탐지 및 분석','27:48'],
+  ['PvoL575gt_8','e러닝) 미술로 만나는 아이들의 마음 02 02','22:38'],
+  ['GvsEvyQpvS8','e러닝) 당신이 옳다 정혜신박사','31:16'],
+  ['xmT4zGeptug','e러닝) 교육청 교사케어','24:06'],
+  ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48']
 ].map(([videoId,title,duration]) => ({videoId,title,duration,visibility:'unlisted'}));
 window.portfolioLandings = [
   {id:'LP01',category:'landing',label:'LANDING PAGE',title:'하이스트 복합수술 랜딩페이지',asset:'assets/landing-combined.png',alt:'하이스트 복합수술 소개 랜딩페이지 디자인',width:640,height:9006,scope:'랜딩페이지 디자인'},
