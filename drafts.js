@@ -13,7 +13,8 @@ const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(vide
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};
 }) : draftSamples;
 const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
-const samples = [...videoSamples, ...weddingSamples, ...(window.portfolioLandings || [])];
+const mukbangSamples = (window.mukbangVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
+const samples = [...videoSamples, ...mukbangSamples, ...weddingSamples, ...(window.portfolioLandings || [])];
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
 const dialog = document.querySelector('#project-dialog');
@@ -28,6 +29,8 @@ function renderProjects() {
   if (channel) channel.hidden = activeFilter !== 'wedding';
   const elearning = document.querySelector('.elearning-channel');
   if (elearning) elearning.hidden = activeFilter !== 'elearning';
+  const mukbang = document.querySelector('.mukbang-channel');
+  if (mukbang) mukbang.hidden = activeFilter !== 'mukbang';
   const total = document.querySelector('[data-filter="all"] span');
   if (total) total.textContent = String(samples.length).padStart(2,'0');
   projects.replaceChildren();
