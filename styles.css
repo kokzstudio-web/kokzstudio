@@ -163,6 +163,24 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 @media (max-width: 700px) { .contact-value { font-size: 20px; } .contact-email-row .contact-value { font-size: 18px; } }
 .channels-section { padding: 64px 48px; border-top: 1px solid var(--line); }
 .channel-list { margin-top: 28px; }
+.instagram-preview { max-width: 900px; margin: 0 auto 28px; }
+.instagram-profile { display: grid; grid-template-columns: 72px minmax(0, 1fr) 24px; gap: 20px; align-items: center; padding: 20px 0 28px; }
+.instagram-profile > img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; }
+.instagram-profile h3 { font-size: 20px; color: #eaeae3; overflow-wrap: anywhere; line-height: 1.5; }
+.instagram-profile p { margin-top: 6px; font-size: 12px; color: #bcbcb3; }
+.instagram-profile > svg { width: 24px; height: 24px; color: #f5e642; }
+.instagram-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+.instagram-posts a { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; }
+.instagram-posts img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .2s; }
+.instagram-posts a:hover img { transform: scale(1.03); }
+.instagram-posts svg { position: absolute; right: 12px; top: 12px; width: 22px; height: 22px; color: #fff; filter: drop-shadow(0 1px 3px #000); }
+.instagram-preview a:focus-visible { outline: 2px solid #f5e642; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .instagram-profile { grid-template-columns: 52px minmax(0, 1fr) 20px; gap: 12px; }
+  .instagram-profile > img { width: 52px; height: 52px; }
+  .instagram-profile h3 { font-size: 16px; }
+  .instagram-posts svg { right: 6px; top: 6px; width: 18px; height: 18px; }
+}
 .channel-reference { display: grid; grid-template-columns: 36px minmax(0, 1fr) 24px; align-items: center; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
 .channel-reference:last-child { border-bottom: 1px solid var(--line); }
 .channel-reference h3 { font-size: 20px; font-weight: 500; line-height: 1.5; color: #eaeae3; overflow-wrap: anywhere; }
