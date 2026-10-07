@@ -175,9 +175,6 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 .instagram-posts a:hover img { transform: scale(1.03); }
 .instagram-posts svg { position: absolute; right: 12px; top: 12px; width: 22px; height: 22px; color: #fff; filter: drop-shadow(0 1px 3px #000); }
 .instagram-preview a:focus-visible { outline: 2px solid #f5e642; outline-offset: 3px; }
-.instagram-cover { position: relative; display: block; width: min(100%, 420px); }
-.instagram-cover img { display: block; width: 100%; height: auto; }
-.instagram-cover svg { position: absolute; top: 12px; right: 12px; width: 22px; height: 22px; color: #fff; filter: drop-shadow(0 1px 3px #000); }
 @media (max-width: 600px) {
   .instagram-profile { grid-template-columns: 52px minmax(0, 1fr) 20px; gap: 12px; }
   .instagram-profile > img { width: 52px; height: 52px; }
