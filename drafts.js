@@ -48,7 +48,8 @@ function renderProjects() {
     article.querySelector('button').addEventListener('click', () => openProject(sample));
     projects.append(article);
   });
-  document.querySelector('.work-count').textContent = showingInstagram ? '1 channel' : `${visible.length} projects`;
+  const instagramCount = instagram?.querySelectorAll('.instagram-account').length || 0;
+  document.querySelector('.work-count').textContent = showingInstagram ? `${instagramCount} ${instagramCount === 1 ? 'channel' : 'channels'}` : `${visible.length} projects`;
   const more = document.querySelector('.load-more');
   if (more) more.hidden = visibleLimit >= visible.length;
   document.querySelector('.no-projects').hidden = showingInstagram || visible.length > 0;
