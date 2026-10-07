@@ -11,16 +11,4 @@ window.mukbangVideos = [
 ].map(([videoId,title,duration],index) => ({
   videoId,title,duration,id:`MB${String(index+1).padStart(2,'0')}`,
   category:'mukbang',label:'먹방',alt:title,source:'윤장금',visibility:'public'
-})).concat([
-  ['eHUWEN6sDTw','포크 소리 시끄럽다고 엄마한테 혼나서 고추로 샐러드 먹는중ㅋㅋㅋㅋㅋㅋ'],
-  ['omFoEucNz8g','요아정 집에서 아주아주 쉽게 만들어서 먹는법 / 초초초초간단해요🫶'],
-  ['6l8G-3GFaPs','반숙란으로 간장계란밥 만드는 ASMR / 입맛없고 심심할때 보세요 :)'],
-  ['NqDErwkjj-A','찐단골집 왕누룽집!! 진짜 꼭 드셔보세요~ 완전커요!! #안양중앙시장 #누룽지맛집 #누룽지 #koreanfood #시장음식 #길거리음식 #ricesnack'],
-  ['KMKcNWHfY3c','완전 크고 바로 만들어서 말랑말랑한 누룽지😋 구수하고 쫄깃하고 바삭하고 맛있어요. 한번 드셔보세요! #안양중앙시장 #누룽지 #시장구경 #핫플레이스 #시장음식소개 #mukbang'],
-  ['VjYQQ0OV4Cg','전복삼계탕집 점심특선🥘 푸짐하고! 개운하고! #맛집공유 #안양삼덕공원맛집 #안양중앙시장 #먹방브이로그 #먹방리뷰 #해장국맛집 #mukbang #seafood #koreanfood'],
-  ['L7Da0BYq5oU','시장줄서는 칼국수집💛 #길거리음식 #먹방 #먹방리뷰 #먹방브이로그 #시장구경 #mukbang #시장맛집 #시장맛집투어'],
-  ['QhigqwD900w','시장에서 풀빵사는 중💛 #풀빵 #길거리음식 #시장구경 #koreanstreetfood']
-].map(([videoId,title],index) => ({
-  videoId,title,duration:'SHORTS',id:`MS${String(index+1).padStart(2,'0')}`,
-  category:'mukbang',label:'먹방 SHORTS',alt:title,source:'윤장금',visibility:'public',kind:'short'
-})));
+}));
