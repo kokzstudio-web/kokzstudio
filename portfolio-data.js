@@ -16,7 +16,7 @@ window.portfolioVideos = [
   ['xbFO2O29Y10','의학 정보) 실제 수술 영상전립선 수술 + 음경 확대 이후 6년만에 추가 확대 수술','7:04'],
   ['9gbe8A3MBRA','의학 다큐) 남자의 자격 이혼 후 음경확대술을 선택한 남자ㅣ나는 확대남이다','12:53'],
   ['fP86e9X46IA','의학 정보) 전립선비대증 환자들이 가장 많이 묻는 질문','10:06'],
-  ['NsoYF3A907k','의학 예능다큐) 풀버전 발기부전 인터뷰 feat 전직 헬스트레이너 편','6:09'],
+  ['NsoYF3A907k','의학 예능다큐) 풀버전 발기부전 인터뷰 feat 전직 헬스트레이너 편','6:09','entertainment'],
   ['9E5CaFRByh4','의학 예능) ※ MZ 여자들이 말하는 남자들의 비밀 feat 노필터','4:37'],
   ['Zzb8_othYEI','의학 정보) ※필수 시청※ 발기부전 주사 트리믹스 사용방법','1:11'],
   ['PgWZBNn5Atk','의학 홍보) 5S복합수술 MASTER 소개합니다!','1:05'],
@@ -101,7 +101,13 @@ window.portfolioVideos = [
   ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48'],
   ['HG8slAsKIP4','제품) 도메틱 컴프레서 전기쿨러 CFF45 사용 매뉴얼','7:45'],
   ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28']
-].map(([videoId,title,duration]) => ({videoId,title,duration,visibility:'unlisted'}));
+].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
+window.entertainmentOrder = [
+  '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
+  'bFIxkWBC2BU', 'R0kupf_k8Wo', 'S0-M6kWTCDg', '36NnplzNKi8',
+  'kKEPQXBn5Qg', '1TmTqByYLfE', 'ZtnSJ1FKgjM', 'Bhn0t4jumQU',
+  '_xZOparxSuk', 'QUJqAaVaWZk'
+];
 window.portfolioLandings = [
   {id:'LP01',category:'landing',label:'LANDING PAGE',title:'하이스트 복합수술 랜딩페이지',asset:'assets/landing-combined.png',alt:'하이스트 복합수술 소개 랜딩페이지 디자인',width:640,height:9006,scope:'랜딩페이지 디자인'},
   {id:'LP02',category:'landing',label:'LANDING PAGE',title:'하이스트 여유증 랜딩페이지',asset:'assets/landing-gynecomastia.png',alt:'하이스트 여유증 소개 랜딩페이지 디자인',width:750,height:10920,scope:'랜딩페이지 디자인'},

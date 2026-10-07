@@ -9,12 +9,13 @@ const draftSamples = [
 const categories = {info:'정보전달', elearning:'e러닝', doc:'다큐멘터리', entertainment:'예능 · 인터뷰', promotion:'홍보 영상', product:'제품'};
 const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId)).map((video,index) => {
   const prefix = video.title.split(')')[0];
-  const category = prefix.includes('제품') ? 'product' : prefix.includes('e러닝') ? 'elearning' : prefix.includes('다큐') ? 'doc' : prefix.includes('홍보') ? 'promotion' : prefix.includes('예능') ? 'entertainment' : 'info';
+  const category = video.category || (prefix.includes('제품') ? 'product' : prefix.includes('e러닝') ? 'elearning' : prefix.includes('다큐') ? 'doc' : prefix.includes('홍보') ? 'promotion' : prefix.includes('예능') ? 'entertainment' : 'info');
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};
 }) : draftSamples;
 const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
 const mukbangSamples = (window.mukbangVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
 const samples = [...videoSamples, ...mukbangSamples, ...weddingSamples, ...(window.portfolioLandings || [])];
+const entertainmentRanks = new Map((window.entertainmentOrder || []).map((videoId,index) => [videoId,index]));
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
 const dialog = document.querySelector('#project-dialog');
@@ -25,6 +26,9 @@ const escapeHtml = value => String(value).replace(/[&<>"']/g, character => ({'&'
 function refreshIcons() { window.lucide?.createIcons(); }
 function renderProjects() {
   const visible = samples.filter(sample => activeFilter === 'all' || sample.category === activeFilter);
+  if (activeFilter === 'entertainment') {
+    visible.sort((a,b) => (entertainmentRanks.get(a.videoId) ?? Infinity) - (entertainmentRanks.get(b.videoId) ?? Infinity));
+  }
   const channel = document.querySelector('.wedding-channel');
   if (channel) channel.hidden = activeFilter !== 'wedding';
   const elearning = document.querySelector('.elearning-channel');
