@@ -98,7 +98,9 @@ window.portfolioVideos = [
   ['PvoL575gt_8','e러닝) 미술로 만나는 아이들의 마음 02 02','22:38'],
   ['GvsEvyQpvS8','e러닝) 당신이 옳다 정혜신박사','31:16'],
   ['xmT4zGeptug','e러닝) 교육청 교사케어','24:06'],
-  ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48']
+  ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48'],
+  ['HG8slAsKIP4','제품) 도메틱 컴프레서 전기쿨러 CFF45 사용 매뉴얼','7:45'],
+  ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28']
 ].map(([videoId,title,duration]) => ({videoId,title,duration,visibility:'unlisted'}));
 window.portfolioLandings = [
   {id:'LP01',category:'landing',label:'LANDING PAGE',title:'하이스트 복합수술 랜딩페이지',asset:'assets/landing-combined.png',alt:'하이스트 복합수술 소개 랜딩페이지 디자인',width:640,height:9006,scope:'랜딩페이지 디자인'},
