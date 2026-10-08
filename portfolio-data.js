@@ -102,7 +102,10 @@ window.portfolioVideos = [
   ['xmT4zGeptug','e러닝) 교육청 교사케어','24:06'],
   ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48'],
   ['HG8slAsKIP4','제품) 도메틱 컴프레서 전기쿨러 CFF45 사용 매뉴얼','7:45'],
-  ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28']
+  ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28'],
+  ['7H83ZPs25UA','e러닝) 장애인식개선 2','7:17'],
+  ['tVMCziwNkOE','e러닝) 하브루타 인터뷰 형식','2:13'],
+  ['h9v7snxu2Fo','e러닝) 하브루타 현장강의 형식','23:09']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
 window.entertainmentOrder = [
   '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
