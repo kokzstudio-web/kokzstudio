@@ -141,6 +141,33 @@ document.querySelectorAll('.filters button').forEach(button => button.addEventLi
   document.querySelectorAll('.filters button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
   renderProjects();
 }));
+const filterNavigation = document.querySelector('.filter-navigation');
+if (filterNavigation) {
+  const strip = filterNavigation.querySelector('.filters');
+  const previous = filterNavigation.querySelector('.previous');
+  const next = filterNavigation.querySelector('.next');
+  const updateFilterNavigation = () => {
+    const overflowing = strip.scrollWidth > strip.clientWidth + 2;
+    filterNavigation.classList.toggle('is-overflowing', overflowing);
+    const maximum = strip.scrollWidth - strip.clientWidth;
+    const left = Math.max(0, Math.min(strip.scrollLeft, maximum));
+    previous.hidden = !overflowing || left <= 2;
+    next.hidden = !overflowing || left >= maximum - 2;
+    filterNavigation.classList.toggle('can-scroll-previous', !previous.hidden);
+    filterNavigation.classList.toggle('can-scroll-next', !next.hidden);
+  };
+  const move = direction => strip.scrollBy({
+    left: direction * Math.max(120, strip.clientWidth * 0.75),
+    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+  });
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  strip.addEventListener('scroll', updateFilterNavigation, {passive:true});
+  window.addEventListener('resize', updateFilterNavigation);
+  if (window.ResizeObserver) new ResizeObserver(updateFilterNavigation).observe(filterNavigation);
+  document.fonts?.ready.then(updateFilterNavigation);
+  updateFilterNavigation();
+}
 document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.querySelector('a[href="#contact"]')?.addEventListener('click', () => dialog.close());
 dialog.addEventListener('close', () => document.querySelector('#dialog-player')?.replaceChildren());

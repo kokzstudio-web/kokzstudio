@@ -27,6 +27,28 @@ body.portfolio-dark {
 .portfolio-dark .creator-baseline { border-color: var(--line); color: #bbbbae; }
 .portfolio-dark .creator-intro .eyebrow { color: var(--muted); }
 .portfolio-dark .work-section { border-top: 1px solid var(--line); }
+.filter-navigation { position: relative; flex: 1; min-width: 0; }
+.filter-navigation.is-overflowing { padding-inline: 40px; }
+.filter-navigation .filters { scrollbar-width: none; overscroll-behavior-x: contain; }
+.filter-navigation .filters::-webkit-scrollbar { display: none; }
+.filter-navigation::before, .filter-navigation::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 20px;
+  z-index: 1; pointer-events: none; opacity: 0;
+}
+.filter-navigation::before { left: 40px; background: linear-gradient(to right, var(--paper), transparent); }
+.filter-navigation::after { right: 40px; background: linear-gradient(to left, var(--paper), transparent); }
+.filter-navigation.can-scroll-previous::before, .filter-navigation.can-scroll-next::after { opacity: 1; }
+.filter-scroll {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  display: grid; place-items: center; width: 36px; height: 44px; padding: 0;
+  border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--accent);
+}
+.filter-scroll.previous { left: 0; }
+.filter-scroll.next { right: 0; }
+.filter-scroll[hidden] { display: none; }
+.filter-scroll svg { width: 20px; height: 20px; }
+.filter-scroll:hover { border-color: var(--accent); }
+.filter-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .portfolio-dark .project-image { background: #1d1d19; }
 .portfolio-dark .project-open { background: #f5e642; color: #0c0c0c; }
 .portfolio-dark .project-caption h3 { color: #eaeae3; }

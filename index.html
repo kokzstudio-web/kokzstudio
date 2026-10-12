@@ -33,13 +33,13 @@
     <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="preload" as="image" href="assets/pd-hero-3d.png">
-    <link rel="stylesheet" href="styles.css?v=20261007-39">
+    <link rel="stylesheet" href="styles.css?v=20261012-48">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script src="portfolio-data.js?v=20261012-47" defer></script>
     <script src="wedding-data.js?v=20261006-17" defer></script>
     <script src="mukbang-data.js?v=20261007-32" defer></script>
     <script src="three-d-data.js?v=20261012-42" defer></script>
-    <script src="drafts.js?v=20261012-45" defer></script>
+    <script src="drafts.js?v=20261012-48" defer></script>
   </head>
   <body data-version="c" class="portfolio-dark">
     <header class="site-header" id="top">
@@ -68,7 +68,11 @@
       <section class="work-section" id="work" aria-labelledby="work-title">
         <div class="section-title"><div><p class="eyebrow">THE PORTFOLIO</p><h2 id="work-title">Selected work<span class="accent"> /</span></h2></div><span class="sample-label">VIDEO & DESIGN PORTFOLIO</span></div>
         <div class="work-toolbar">
-          <div class="filters" role="group" aria-label="작업물 주제 필터"><button type="button" data-filter="all" aria-pressed="true">전체 <span>240</span></button><button type="button" data-filter="3d" aria-pressed="false">3D</button><button type="button" data-filter="info" aria-pressed="false">정보전달</button><button type="button" data-filter="elearning" aria-pressed="false">e러닝</button><button type="button" data-filter="doc" aria-pressed="false">다큐멘터리</button><button type="button" data-filter="entertainment" aria-pressed="false">예능 · 인터뷰</button><button type="button" data-filter="mukbang" aria-pressed="false">먹방</button><button type="button" data-filter="promotion" aria-pressed="false">홍보 영상</button><button type="button" data-filter="product" aria-pressed="false">제품</button><button type="button" data-filter="wedding" aria-pressed="false">웨딩 필름</button><button type="button" data-filter="instagram" aria-pressed="false">인스타그램</button><button type="button" data-filter="landing" aria-pressed="false">디자인페이지</button></div>
+          <div class="filter-navigation">
+            <button class="filter-scroll previous" type="button" aria-label="이전 주제 보기" aria-controls="work-filters" title="이전 주제 보기" hidden><i data-lucide="chevron-left"></i></button>
+            <div class="filters" id="work-filters" role="group" aria-label="작업물 주제 필터"><button type="button" data-filter="all" aria-pressed="true">전체 <span>240</span></button><button type="button" data-filter="3d" aria-pressed="false">3D</button><button type="button" data-filter="info" aria-pressed="false">정보전달</button><button type="button" data-filter="elearning" aria-pressed="false">e러닝</button><button type="button" data-filter="doc" aria-pressed="false">다큐멘터리</button><button type="button" data-filter="entertainment" aria-pressed="false">예능 · 인터뷰</button><button type="button" data-filter="mukbang" aria-pressed="false">먹방</button><button type="button" data-filter="promotion" aria-pressed="false">홍보 영상</button><button type="button" data-filter="product" aria-pressed="false">제품</button><button type="button" data-filter="wedding" aria-pressed="false">웨딩 필름</button><button type="button" data-filter="instagram" aria-pressed="false">인스타그램</button><button type="button" data-filter="landing" aria-pressed="false">디자인페이지</button></div>
+            <button class="filter-scroll next" type="button" aria-label="다음 주제 보기" aria-controls="work-filters" title="다음 주제 보기" hidden><i data-lucide="chevron-right"></i></button>
+          </div>
           <span class="work-count" aria-live="polite">240 projects</span>
         </div>
         <div class="elearning-channel category-note" hidden><div><p>RGB커뮤니케이션</p><span>RGB커뮤니케이션 재직 중 제작한 e러닝 교육 콘텐츠</span></div></div>
