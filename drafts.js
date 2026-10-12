@@ -7,7 +7,8 @@ const draftSamples = [
   {id:'06', category:'image', label:'IMAGE / KEY VISUAL', title:'이야기를 시작하는 한 장', image:'photo-1485846234645-a62644f84728', alt:'영화 촬영 장비', scope:'썸네일 기획 · 이미지 제작', description:'썸네일과 콘텐츠 키비주얼의 샘플 구성입니다. 영상의 메시지를 한눈에 전달하는 이미지 제작 방향을 보여줍니다.'}
 ];
 const categories = {info:'정보전달', elearning:'e러닝', doc:'다큐멘터리', entertainment:'예능 · 인터뷰', promotion:'홍보 영상', product:'제품'};
-const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId)).map((video,index) => {
+const excludedVideoIds = new Set(window.portfolioExcludedVideoIds || []);
+const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(video => !excludedVideoIds.has(video.videoId) && video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId)).map((video,index) => {
   const prefix = video.title.split(')')[0];
   const category = video.category || (prefix.includes('제품') ? 'product' : prefix.includes('e러닝') ? 'elearning' : prefix.includes('다큐') ? 'doc' : prefix.includes('홍보') ? 'promotion' : prefix.includes('예능') ? 'entertainment' : 'info');
   return {...video, id:String(index+1).padStart(2,'0'), category, label:categories[category], alt:video.title, scope:video.duration};

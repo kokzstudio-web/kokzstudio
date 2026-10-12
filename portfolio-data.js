@@ -98,17 +98,19 @@ window.portfolioVideos = [
   ['r5AUXb4YDOY','e러닝) 삼성SDS','2:36'],
   ['rOZ7nf91vGo','e러닝) 산업인력공단 보안엔지니어링','27:48'],
   ['PvoL575gt_8','e러닝) 미술로 만나는 아이들의 마음 02 02','22:38'],
-  ['GvsEvyQpvS8','e러닝) 당신이 옳다 정혜신박사','31:16'],
+  ['BzxlS7kuXZ8','e러닝 홍보) 정혜신의 적정심리학, 당신이 옳다','2:09'],
+  ['8RmYzoQ4y4k','e러닝 홍보) 정혜신의 적정심리학, 당신이 옳다 | 54초 티저','0:54'],
   ['xmT4zGeptug','e러닝) 교육청 교사케어','24:06'],
   ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48'],
   ['HG8slAsKIP4','제품) 도메틱 컴프레서 전기쿨러 CFF45 사용 매뉴얼','7:45'],
   ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28'],
   ['7H83ZPs25UA','e러닝) 장애인식개선 2','7:17'],
-  ['tVMCziwNkOE','e러닝) 하브루타 인터뷰 형식','2:13'],
-  ['h9v7snxu2Fo','e러닝) 하브루타 현장강의 형식','23:09'],
+  ['28LIfENpk7k','e러닝 홍보) 하브루타 학습대화, 질문이 살아있는 교실 이야기','0:43'],
   ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
   ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
+// Full lessons replaced by promotional clips; do not re-add during synchronization.
+window.portfolioExcludedVideoIds = ['GvsEvyQpvS8', 'tVMCziwNkOE', 'h9v7snxu2Fo'];
 window.entertainmentOrder = [
   '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
   'bFIxkWBC2BU', 'R0kupf_k8Wo', 'S0-M6kWTCDg', '36NnplzNKi8',
