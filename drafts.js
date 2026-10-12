@@ -14,7 +14,8 @@ const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(vide
 }) : draftSamples;
 const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
 const mukbangSamples = (window.mukbangVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
-const samples = [...videoSamples, ...mukbangSamples, ...weddingSamples, ...(window.portfolioLandings || [])];
+const threeDSamples = (window.threeDVideos || []).filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId));
+const samples = [...videoSamples, ...mukbangSamples, ...weddingSamples, ...threeDSamples, ...(window.portfolioLandings || [])];
 const entertainmentRanks = new Map((window.entertainmentOrder || []).map((videoId,index) => [videoId,index]));
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
@@ -33,6 +34,8 @@ function renderProjects() {
   if (channel) channel.hidden = activeFilter !== 'wedding';
   const elearning = document.querySelector('.elearning-channel');
   if (elearning) elearning.hidden = activeFilter !== 'elearning';
+  const threeD = document.querySelector('.three-d-channel');
+  if (threeD) threeD.hidden = activeFilter !== '3d';
   const mukbang = document.querySelector('.mukbang-channel');
   if (mukbang) mukbang.hidden = activeFilter !== 'mukbang';
   const instagram = document.querySelector('.instagram-list');
@@ -44,7 +47,7 @@ function renderProjects() {
   visible.slice(0, window.portfolioVideos ? visibleLimit : visible.length).forEach(sample => {
     const article = document.createElement('article');
     article.className = sample.asset ? 'project project-landing' : 'project';
-    article.innerHTML = `<button class="project-trigger" type="button" aria-label="${escapeHtml(sample.title)} ${sample.videoId ? '영상 보기' : sample.asset ? '디자인 보기' : '샘플 상세 보기'}"><div class="project-image"><img src="${imageUrl(sample)}" alt="${escapeHtml(sample.alt)}" loading="lazy"><span class="project-open"><i data-lucide="${sample.videoId ? 'play' : sample.asset ? 'expand' : 'arrow-up-right'}"></i></span>${sample.videoId ? `<span class="video-duration">${sample.duration}</span>` : ''}</div><div class="project-caption"><div><p class="project-category">${sample.label}</p><h3>${escapeHtml(sample.title)}</h3><p class="project-note">${sample.videoId ? escapeHtml(sample.source || 'YOUTUBE') : sample.asset ? sample.scope : '샘플 이미지 · ' + sample.scope}</p></div><span class="project-index">${sample.id}</span></div></button>`;
+    article.innerHTML = `<button class="project-trigger" type="button" aria-label="${escapeHtml(sample.title)} ${sample.videoId ? '영상 보기' : sample.asset ? '디자인 보기' : '샘플 상세 보기'}"><div class="project-image"><img src="${imageUrl(sample)}" alt="${escapeHtml(sample.alt)}" loading="lazy"><span class="project-open"><i data-lucide="${sample.videoId ? 'play' : sample.asset ? 'expand' : 'arrow-up-right'}"></i></span>${sample.videoId && sample.duration ? `<span class="video-duration">${escapeHtml(sample.duration)}</span>` : ''}</div><div class="project-caption"><div><p class="project-category">${sample.label}</p><h3>${escapeHtml(sample.title)}</h3><p class="project-note">${sample.videoId ? escapeHtml(sample.source || 'YOUTUBE') : sample.asset ? sample.scope : '샘플 이미지 · ' + sample.scope}</p></div><span class="project-index">${sample.id}</span></div></button>`;
     article.querySelector('button').addEventListener('click', () => openProject(sample));
     projects.append(article);
   });
@@ -80,7 +83,7 @@ function openProject(sample) {
   }
   if (sample.videoId) {
     document.querySelector('#dialog-title').textContent = sample.title;
-    document.querySelector('#dialog-category').textContent = `${sample.label}${sample.kind === 'short' ? '' : ' / ' + sample.duration}${sample.source ? ' / ' + sample.source : ''}`;
+    document.querySelector('#dialog-category').textContent = `${sample.label}${sample.kind === 'short' || !sample.duration ? '' : ' / ' + sample.duration}${sample.source ? ' / ' + sample.source : ''}`;
     document.querySelector('#youtube-link').href = `https://www.youtube.com/watch?v=${sample.videoId}`;
     const iframe = document.createElement('iframe');
     iframe.title = sample.title;
