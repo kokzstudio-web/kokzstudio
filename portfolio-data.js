@@ -87,30 +87,36 @@ window.portfolioVideos = [
   ['V8fyvtbMgqI','의학 다큐) 확대수술 다큐를 본 실제 부부의 반응ㅣ나는 확대남이다ㅣ음경확대술','11:47'],
   ['ml8Q9LOTb7s','의학 다큐) 확대수술을 할 수 밖에 없는 25세 대학생ㅣ음경확대수술 후기ㅣ나는 확대남이다','14:35'],
   ['1F4Qd_UXtZI','e러닝) 아이스크림연수원 Z세대의 소통법, 유튜브 활용 교육','2:30'],
-  ['BHEKoMyV2ag','e러닝) 경찰청 썰전','12:52'],
+  ['7nl-YiYt8KY','e러닝 하이라이트) 경찰청 썰전','1:07'],
   ['BzxlS7kuXZ8','e러닝 홍보) 정혜신의 적정심리학, 당신이 옳다','2:09'],
-  ['KB08XWxl9vI','e러닝) 한 학기 한 권 읽기','20:32'],
-  ['ID22Mnk48ns','e러닝) 파이썬','7:50'],
-  ['We8hncHqKwU','e러닝) 장애인식개선','10:18'],
-  ['cDUx0Rrykhw','e러닝) 장애공감교육','21:40'],
-  ['7-oqdtP6YUM','e러닝) 변호사 자금세탁방지','27:26'],
-  ['p3_le4SioDc','e러닝) 산업인력공단 임베디드 SW엔지니어링','27:36'],
-  ['_JI9RqFe72s','e러닝) 오피스','22:51'],
-  ['r5AUXb4YDOY','e러닝) 삼성SDS','2:36'],
-  ['rOZ7nf91vGo','e러닝) 산업인력공단 보안엔지니어링','27:48'],
-  ['PvoL575gt_8','e러닝) 미술로 만나는 아이들의 마음 02 02','22:38'],
+  ['CUmvDb1ffJA','e러닝 하이라이트) 한 학기 한 권 읽기','1:07'],
+  ['WIRJ_NaL0Mo','e러닝 하이라이트) 파이썬','1:07'],
+  ['aQOhyRKE8Xk','e러닝 하이라이트) 성희롱 예방 교육','1:07'],
+  ['WnJxKDcq3bw','e러닝 하이라이트) 장애공감교육','1:07'],
+  ['q2DA8n0F1z8','e러닝 하이라이트) 변호사 자금세탁방지','1:07'],
+  ['G_CQOhMRH9g','e러닝 하이라이트) 산업인력공단 임베디드 SW엔지니어링','1:07'],
+  ['EqKpzcCqItM','e러닝 하이라이트) 오피스','1:07'],
+  ['_W0n9UvBKPk','e러닝 하이라이트) 삼성SDS','1:07'],
+  ['0I0j-Mj8lx0','e러닝 하이라이트) 산업인력공단 보안엔지니어링','1:07'],
+  ['XPYxuoA4eKc','e러닝 하이라이트) 미술로 만나는 아이들의 마음','1:07'],
   ['8RmYzoQ4y4k','e러닝 홍보) 정혜신의 적정심리학, 당신이 옳다 | 54초 티저','0:54'],
-  ['xmT4zGeptug','e러닝) 교육청 교사케어','24:06'],
-  ['YowCgI2L2xo','e러닝) 교육청 교사 119','29:48'],
+  ['2AJYocyf1_Q','e러닝 하이라이트) 교육청 교사케어','1:07'],
+  ['uVgzedCUPJk','e러닝 하이라이트) 교육청 교사 119','1:07'],
   ['HG8slAsKIP4','제품) 도메틱 컴프레서 전기쿨러 CFF45 사용 매뉴얼','7:45'],
   ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28'],
-  ['7H83ZPs25UA','e러닝) 장애인식개선 2','7:17'],
-  ['28LIfENpk7k','e러닝 홍보) 하브루타 학습대화, 질문이 살아있는 교실 이야기','0:43'],
+  ['ioXP4EvvEJY','e러닝 하이라이트) 장애인식개선 2','1:07'],
+  ['odfjJujXeEo','e러닝 하이라이트) 하브루타 현장강의','1:07'],
   ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
   ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
-// Full lessons replaced by promotional clips; do not re-add during synchronization.
-window.portfolioExcludedVideoIds = ['GvsEvyQpvS8', 'tVMCziwNkOE', 'h9v7snxu2Fo'];
+// Replaced lessons and a mismatched promo must not return during synchronization.
+window.portfolioExcludedVideoIds = [
+  'GvsEvyQpvS8', 'tVMCziwNkOE', 'h9v7snxu2Fo', '28LIfENpk7k',
+  'BHEKoMyV2ag', 'KB08XWxl9vI', 'ID22Mnk48ns', 'We8hncHqKwU',
+  'cDUx0Rrykhw', '7-oqdtP6YUM', 'p3_le4SioDc', '_JI9RqFe72s',
+  'r5AUXb4YDOY', 'rOZ7nf91vGo', 'PvoL575gt_8', 'xmT4zGeptug',
+  'YowCgI2L2xo', '7H83ZPs25UA'
+];
 window.entertainmentOrder = [
   '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
   'bFIxkWBC2BU', 'R0kupf_k8Wo', 'S0-M6kWTCDg', '36NnplzNKi8',
