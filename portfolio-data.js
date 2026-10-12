@@ -1,4 +1,4 @@
-// Visibility checked in YouTube Studio on 2026-10-08. Drafts are excluded.
+// Visibility checked in YouTube Studio on 2026-10-12. Drafts are excluded.
 window.portfolioVideos = [
   // Selected work first, led by the two pig-model surgery videos.
   ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
@@ -105,7 +105,9 @@ window.portfolioVideos = [
   ['PH2O84dN8Qw','제품) 도메틱 허브 설치매뉴얼 설치, 해체, 수납','12:28'],
   ['7H83ZPs25UA','e러닝) 장애인식개선 2','7:17'],
   ['tVMCziwNkOE','e러닝) 하브루타 인터뷰 형식','2:13'],
-  ['h9v7snxu2Fo','e러닝) 하브루타 현장강의 형식','23:09']
+  ['h9v7snxu2Fo','e러닝) 하브루타 현장강의 형식','23:09'],
+  ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
+  ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
 window.entertainmentOrder = [
   '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
