@@ -107,7 +107,8 @@ window.portfolioVideos = [
   ['ioXP4EvvEJY','e러닝 하이라이트) 장애인식개선 2','1:07'],
   ['odfjJujXeEo','e러닝 하이라이트) 하브루타 현장강의','1:07'],
   ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
-  ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40']
+  ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40'],
+  ['3qWEHqrdKMY','의학 홍보) 진피 분말 섞는 기계','0:48']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
 // Replaced lessons and a mismatched promo must not return during synchronization.
 window.portfolioExcludedVideoIds = [
