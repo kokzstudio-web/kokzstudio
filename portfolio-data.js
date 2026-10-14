@@ -108,7 +108,14 @@ window.portfolioVideos = [
   ['odfjJujXeEo','e러닝 하이라이트) 하브루타 현장강의','1:07'],
   ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
   ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40'],
-  ['3qWEHqrdKMY','의학 홍보) 진피 분말 섞는 기계','0:48']
+  ['3qWEHqrdKMY','의학 홍보) 진피 분말 섞는 기계','0:48'],
+  ['eI6mbVAqRvQ','홍보) SSAKA eng','3:47'],
+  ['-a8JqxV7cIA','홍보) Brewguru kor PR','2:55'],
+  ['BrS6qLU-EmM','의학 정보) 줄기세포 배양액 시술','4:43'],
+  ['wbuREsnK4D0','의학 정보) 헬리오스 레이저 asmr','8:54'],
+  ['z8GmNOfuKQw','의학 정보) 원셀메디클리닉 서명원원장','12:25'],
+  ['yyMNriDMKAI','제품) 산토리니 설치방법','13:38'],
+  ['lLOvgfuXodM','홍보) 강푸드','0:32']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
 // Replaced lessons and a mismatched promo must not return during synchronization.
 window.portfolioExcludedVideoIds = [
