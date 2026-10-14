@@ -1,7 +1,10 @@
 // Visibility checked in YouTube Studio on 2026-10-12. Drafts are excluded.
 window.portfolioVideos = [
-  // Selected work first, led by the two pig-model surgery videos.
+  // Selected pig-model surgery first, followed by the latest medical videos.
   ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
+  ['BrS6qLU-EmM','의학 정보) 줄기세포 배양액 시술','4:43'],
+  ['wbuREsnK4D0','의학 정보) 헬리오스 레이저 asmr','8:54'],
+  ['z8GmNOfuKQw','의학 정보) 원셀메디클리닉 서명원원장','12:25'],
   ['TWMJEfYQzvw','의학 정보) 여유증 돼지 모의수술 전체프로세스','7:22'],
   ['SDKnAsC2eGk','의학 정보) NEW 전립선비대증 신의료기술 국내 도입! 리줌 시스템','8:13'],
   ['y_8N1Mc4Fjo','의학 정보) 5S복합수술 수술당일 진행 과정 소개','4:40'],
@@ -109,9 +112,6 @@ window.portfolioVideos = [
   ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
   ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40'],
   ['3qWEHqrdKMY','의학 홍보) 진피 분말 섞는 기계','0:48'],
-  ['BrS6qLU-EmM','의학 정보) 줄기세포 배양액 시술','4:43'],
-  ['wbuREsnK4D0','의학 정보) 헬리오스 레이저 asmr','8:54'],
-  ['z8GmNOfuKQw','의학 정보) 원셀메디클리닉 서명원원장','12:25'],
   ['yyMNriDMKAI','제품) 산토리니 설치방법','13:38'],
   ['lLOvgfuXodM','홍보) 강푸드','0:32']
 ].map(([videoId,title,duration,category]) => ({videoId,title,duration,visibility:'unlisted',...(category ? {category} : {})}));
