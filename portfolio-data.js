@@ -109,8 +109,6 @@ window.portfolioVideos = [
   ['3QC0t3sMQw4','의학 정보) 비뇨기과 성심성의','14:23'],
   ['m-JSroTrOmI','의학 정보) 비뇨기과 성심성의2','5:40'],
   ['3qWEHqrdKMY','의학 홍보) 진피 분말 섞는 기계','0:48'],
-  ['eI6mbVAqRvQ','홍보) SSAKA eng','3:47'],
-  ['-a8JqxV7cIA','홍보) Brewguru kor PR','2:55'],
   ['BrS6qLU-EmM','의학 정보) 줄기세포 배양액 시술','4:43'],
   ['wbuREsnK4D0','의학 정보) 헬리오스 레이저 asmr','8:54'],
   ['z8GmNOfuKQw','의학 정보) 원셀메디클리닉 서명원원장','12:25'],
@@ -123,7 +121,7 @@ window.portfolioExcludedVideoIds = [
   'BHEKoMyV2ag', 'KB08XWxl9vI', 'ID22Mnk48ns', 'We8hncHqKwU',
   'cDUx0Rrykhw', '7-oqdtP6YUM', 'p3_le4SioDc', '_JI9RqFe72s',
   'r5AUXb4YDOY', 'rOZ7nf91vGo', 'PvoL575gt_8', 'xmT4zGeptug',
-  'YowCgI2L2xo', '7H83ZPs25UA'
+  'YowCgI2L2xo', '7H83ZPs25UA', 'eI6mbVAqRvQ', '-a8JqxV7cIA'
 ];
 window.entertainmentOrder = [
   '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
