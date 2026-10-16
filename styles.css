@@ -88,6 +88,17 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
   animation: studio-float 8s ease-in-out infinite;
 }
 .landing-copy { width: 46%; max-width: 560px; }
+.showreel-section { padding: 48px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+.showreel-section .section-title { gap: 16px; margin-bottom: 24px; }
+.showreel-section h2 { font-size: 28px; line-height: 1.5; overflow-wrap: anywhere; }
+.showreel-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; object-fit: contain; }
+.showreel-video:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.showreel-credit { margin-top: 14px; color: var(--muted); font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .showreel-section { padding: 32px 20px; }
+  .showreel-section h2 { font-size: 21px; }
+  .showreel-section .sample-label { display: none; }
+}
 .landing-copy .eyebrow { color: #b8b8ad; font-size: 11px; }
 .landing-tagline { margin-top: 20px; font-size: 44px; font-weight: 600; line-height: 1.5; }
 .landing-description { margin-top: 18px; color: #b8b8ad; font-size: 13px; line-height: 1.95; }
