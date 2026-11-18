@@ -94,7 +94,8 @@ body.portfolio-dark .contact-section { background: #0c0c0c; border-top: 1px soli
 .behind-heading > p { color: #bcbcb3; font-size: 13px; line-height: 2; }
 .behind-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 16px; }
 .behind-gallery figure { margin: 0; min-width: 0; }
-.behind-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.behind-gallery .behind-landscape { grid-column: span 2; }
+.behind-gallery img { display: block; width: 100%; height: auto; }
 .behind-gallery figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 12px; color: #bcbcb3; font-size: 12px; line-height: 1.7; }
 .behind-gallery figcaption span { color: #f5e642; font-size: 10px; }
 .production-credit { border-left: 2px solid #f5e642; padding: 0 0 0 16px; margin-bottom: 28px; line-height: 1.9; }
