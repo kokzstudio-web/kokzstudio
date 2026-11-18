@@ -144,6 +144,12 @@ document.querySelectorAll('.filters button').forEach(button => button.addEventLi
   visibleLimit = 12;
   document.querySelectorAll('.filters button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
   renderProjects();
+  const strip = button.closest('.filters');
+  if (strip.scrollWidth > strip.clientWidth) {
+    const bounds = strip.getBoundingClientRect();
+    const selected = button.getBoundingClientRect();
+    strip.scrollBy({left:selected.left + selected.width / 2 - bounds.left - strip.clientWidth / 2, behavior:'instant'});
+  }
 }));
 const filterNavigation = document.querySelector('.filter-navigation');
 if (filterNavigation) {
