@@ -37,6 +37,8 @@ function renderProjects() {
   if (channel) channel.hidden = activeFilter !== 'wedding';
   const elearning = document.querySelector('.elearning-channel');
   if (elearning) elearning.hidden = activeFilter !== 'elearning';
+  const productionCredit = document.querySelector('.production-credit');
+  if (productionCredit) productionCredit.hidden = ['wedding', 'elearning', '3d', 'landing'].includes(activeFilter);
   const threeD = document.querySelector('.three-d-channel');
   if (threeD) threeD.hidden = activeFilter !== '3d';
   const mukbang = document.querySelector('.mukbang-channel');
@@ -64,6 +66,10 @@ function renderProjects() {
   refreshIcons();
 }
 function openProject(sample) {
+  const credit = document.querySelector('#dialog-description');
+  const isMainProduction = sample.videoId && !['wedding', 'elearning', '3d'].includes(sample.category);
+  credit.hidden = !isMainProduction;
+  credit.textContent = isMainProduction ? '기획·촬영·편집 전 과정에 메인 PD로 참여한 콘텐츠입니다.' : '';
   const landing = document.querySelector('#dialog-landing');
   if (landing) {
     landing.hidden = !sample.asset;

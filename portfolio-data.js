@@ -1,5 +1,9 @@
 // Visibility checked in YouTube Studio on 2026-10-12. Drafts are excluded.
 window.portfolioVideos = [
+  // Latest completed unlisted uploads verified in YouTube Studio on 2026-11-18.
+  ['3kCO2s9l-_Y','딕헌터 확대수술 후기','4:53','entertainment'],
+  ['It34O-M58ns','의학 정보) 원셀메디클리닉','8:59'],
+  ['HWKQNCqidtA','홍보) 프라우드','2:11'],
   // Selected pig-model surgery first, followed by the latest medical videos.
   ['jtoT__Iy72I','의학 정보) 지방흡입 LSSA 돼지 모의수술','4:33'],
   ['BrS6qLU-EmM','의학 정보) 줄기세포 배양액 시술','4:43'],
@@ -124,6 +128,7 @@ window.portfolioExcludedVideoIds = [
   'YowCgI2L2xo', '7H83ZPs25UA', 'eI6mbVAqRvQ', '-a8JqxV7cIA'
 ];
 window.entertainmentOrder = [
+  '3kCO2s9l-_Y',
   '9E5CaFRByh4', 'NsoYF3A907k', '-l4ckQHn29c', '7Xg06QM0A-o',
   'bFIxkWBC2BU', 'R0kupf_k8Wo', 'S0-M6kWTCDg', '36NnplzNKi8',
   'kKEPQXBn5Qg', '1TmTqByYLfE', 'ZtnSJ1FKgjM', 'Bhn0t4jumQU',
