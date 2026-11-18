@@ -16,7 +16,9 @@ const videoSamples = window.portfolioVideos ? window.portfolioVideos.filter(vide
 const weddingSamples = (window.weddingVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
 const mukbangSamples = (window.mukbangVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId));
 const threeDSamples = (window.threeDVideos || []).filter(video => video.visibility === 'unlisted' && /^[\w-]{11}$/.test(video.videoId));
-const samples = [...videoSamples, ...mukbangSamples, ...weddingSamples, ...threeDSamples, ...(window.portfolioLandings || [])];
+const existingVideoIds = new Set([...videoSamples, ...mukbangSamples, ...weddingSamples, ...threeDSamples].map(video => video.videoId));
+const diligenceSamples = (window.diligenceVideos || []).filter(video => video.visibility === 'public' && /^[\w-]{11}$/.test(video.videoId) && !excludedVideoIds.has(video.videoId) && !existingVideoIds.has(video.videoId));
+const samples = [...videoSamples, ...mukbangSamples, ...weddingSamples, ...threeDSamples, ...(window.portfolioLandings || []), ...diligenceSamples];
 const entertainmentRanks = new Map((window.entertainmentOrder || []).map((videoId,index) => [videoId,index]));
 const references = {a:{name:'Ordinary Folk',url:'https://www.ordinaryfolk.co/'},b:{name:'BUCK',url:'https://buck.co/'},c:{name:'Cub Studio',url:'https://www.cubstudio.com/'}};
 const projects = document.querySelector('#projects');
@@ -39,6 +41,8 @@ function renderProjects() {
   if (threeD) threeD.hidden = activeFilter !== '3d';
   const mukbang = document.querySelector('.mukbang-channel');
   if (mukbang) mukbang.hidden = activeFilter !== 'mukbang';
+  const diligence = document.querySelector('.diligence-channel');
+  if (diligence) diligence.hidden = activeFilter !== 'diligence';
   const instagram = document.querySelector('.instagram-list');
   const showingInstagram = !!instagram && activeFilter === 'instagram';
   if (instagram) instagram.hidden = !showingInstagram;
