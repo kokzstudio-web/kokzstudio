@@ -217,3 +217,24 @@ document.querySelector('.copy-email').addEventListener('click', async () => {
 window.addEventListener('popstate', () => selectVersion(new URL(location.href).searchParams.get('version'), false));
 selectVersion(new URL(location.href).searchParams.get('version'), false);
 renderProjects();
+
+const behindGallery = document.querySelector('#behind-gallery');
+if (behindGallery) {
+  const galleryButtons = [...document.querySelectorAll('[data-gallery-direction]')];
+  const updateGalleryControls = () => {
+    galleryButtons.forEach(button => {
+      button.disabled = Number(button.dataset.galleryDirection) < 0
+        ? behindGallery.scrollLeft <= 1
+        : behindGallery.scrollLeft + behindGallery.clientWidth >= behindGallery.scrollWidth - 1;
+    });
+  };
+  galleryButtons.forEach(button => button.addEventListener('click', () => {
+    behindGallery.scrollBy({
+      left: Number(button.dataset.galleryDirection) * behindGallery.clientWidth * .8,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+    });
+  }));
+  behindGallery.addEventListener('scroll', updateGalleryControls, {passive: true});
+  new ResizeObserver(updateGalleryControls).observe(behindGallery);
+  updateGalleryControls();
+}
