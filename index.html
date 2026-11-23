@@ -33,14 +33,14 @@
     <link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="preload" as="image" href="assets/pd-hero-3d.png">
-    <link rel="stylesheet" href="styles.css?v=20261118-61">
+    <link rel="stylesheet" href="styles.css?v=20261123-63">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
     <script src="portfolio-data.js?v=20261118-58" defer></script>
     <script src="wedding-data.js?v=20261006-17" defer></script>
     <script src="mukbang-data.js?v=20261007-32" defer></script>
     <script src="three-d-data.js?v=20261012-42" defer></script>
     <script src="diligence-data.js?v=20261118-56" defer></script>
-    <script src="drafts.js?v=20261118-61" defer></script>
+    <script src="drafts.js?v=20261123-63" defer></script>
   </head>
   <body data-version="c" class="portfolio-dark">
     <header class="site-header" id="top">
@@ -67,8 +67,8 @@
         </div>
       </section>
       <section class="behind-section" id="on-set" aria-labelledby="behind-title">
-        <div class="behind-heading"><div><p class="eyebrow">BEHIND THE SCENES</p><h2 id="behind-title">좋은 영상은, 현장에서 시작됩니다.</h2></div><div class="gallery-controls"><button type="button" data-gallery-direction="-1" aria-label="이전 촬영 사진" aria-controls="behind-gallery" title="이전 촬영 사진"><i data-lucide="chevron-left"></i></button><button type="button" data-gallery-direction="1" aria-label="다음 촬영 사진" aria-controls="behind-gallery" title="다음 촬영 사진"><i data-lucide="chevron-right"></i></button></div></div>
-        <div class="behind-gallery" id="behind-gallery" tabindex="0" role="region" aria-label="촬영 현장 사진 20장">
+        <div class="behind-heading"><div><p class="eyebrow">BEHIND THE SCENES</p><h2 id="behind-title">좋은 영상은, 현장에서 시작됩니다.</h2></div><span class="sample-label">ON SET / 20 MOMENTS</span></div>
+        <div class="behind-gallery" id="behind-gallery" role="region" aria-label="촬영 현장 사진 20장">
           <figure class="behind-wide"><img src="assets/on-set-01.jpg" alt="여러 대의 카메라를 설치한 병원 인터뷰 촬영 현장" width="1200" height="1600" loading="lazy"><figcaption><span>01 / ON SET</span>이야기를 담을 준비</figcaption></figure>
           <figure><img src="assets/on-set-03.jpg" alt="무선 마이크를 착용한 두 출연자의 인터뷰 촬영" width="1200" height="1600" loading="lazy"><figcaption><span>02 / INTERVIEW</span>대화의 흐름에 집중하며</figcaption></figure>
           <figure><img src="assets/on-set-04.jpg" alt="카메라와 함께 바라본 인터뷰 현장의 전체 모습" width="1200" height="1600" loading="lazy"><figcaption><span>03 / PRODUCTION</span>한 장면을 함께 만드는 현장</figcaption></figure>
@@ -167,6 +167,10 @@
       </section>
     </main>
     <footer><span>© 2026 KOKZ Studio. All rights reserved.</span><a href="#top">BACK TO TOP <i data-lucide="arrow-up"></i></a></footer>
+    <dialog id="photo-dialog" aria-label="촬영 현장 사진 확대">
+      <div class="photo-toolbar"><p id="photo-caption"></p><span id="photo-counter"></span><button type="button" class="photo-close" aria-label="사진 닫기" title="사진 닫기"><i data-lucide="x"></i></button></div>
+      <div class="photo-stage"><button type="button" class="photo-prev" aria-label="이전 사진" title="이전 사진"><i data-lucide="chevron-left"></i></button><img id="photo-image" alt=""><button type="button" class="photo-next" aria-label="다음 사진" title="다음 사진"><i data-lucide="chevron-right"></i></button></div>
+    </dialog>
     <dialog id="project-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" type="button" aria-label="닫기" title="닫기"><i data-lucide="x"></i></button><img id="dialog-image" alt="" hidden><div id="dialog-player" class="video-player"></div>
       <div class="dialog-copy"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description" hidden></p><p id="dialog-scope" hidden></p><a id="youtube-link" class="video-link" target="_blank" rel="noopener noreferrer">YouTube에서 보기 <i data-lucide="external-link"></i></a><a class="inquiry" href="#contact">프로젝트 문의 <i data-lucide="arrow-up-right"></i></a></div>

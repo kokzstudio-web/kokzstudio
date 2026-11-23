@@ -220,21 +220,42 @@ renderProjects();
 
 const behindGallery = document.querySelector('#behind-gallery');
 if (behindGallery) {
-  const galleryButtons = [...document.querySelectorAll('[data-gallery-direction]')];
-  const updateGalleryControls = () => {
-    galleryButtons.forEach(button => {
-      button.disabled = Number(button.dataset.galleryDirection) < 0
-        ? behindGallery.scrollLeft <= 1
-        : behindGallery.scrollLeft + behindGallery.clientWidth >= behindGallery.scrollWidth - 1;
-    });
+  const photos = [...behindGallery.querySelectorAll('figure')];
+  const photoDialog = document.querySelector('#photo-dialog');
+  let photoIndex = 0;
+  const showPhoto = index => {
+    photoIndex = (index + photos.length) % photos.length;
+    const original = photos[photoIndex].querySelector('img');
+    const image = document.querySelector('#photo-image');
+    image.src = original.src;
+    image.alt = original.alt;
+    document.querySelector('#photo-caption').textContent = original.alt;
+    document.querySelector('#photo-counter').textContent = `${photoIndex + 1} / ${photos.length}`;
   };
-  galleryButtons.forEach(button => button.addEventListener('click', () => {
-    behindGallery.scrollBy({
-      left: Number(button.dataset.galleryDirection) * behindGallery.clientWidth * .8,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+  photos.forEach((figure, index) => {
+    const image = figure.querySelector('img');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.setAttribute('aria-label', `${image.alt} 확대`);
+    button.title = image.alt;
+    button.append(image);
+    figure.prepend(button);
+    button.addEventListener('click', () => {
+      showPhoto(index);
+      photoDialog.showModal();
     });
-  }));
-  behindGallery.addEventListener('scroll', updateGalleryControls, {passive: true});
-  new ResizeObserver(updateGalleryControls).observe(behindGallery);
-  updateGalleryControls();
+  });
+  photoDialog.querySelector('.photo-close').addEventListener('click', () => photoDialog.close());
+  photoDialog.querySelector('.photo-prev').addEventListener('click', () => showPhoto(photoIndex - 1));
+  photoDialog.querySelector('.photo-next').addEventListener('click', () => showPhoto(photoIndex + 1));
+  photoDialog.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      showPhoto(photoIndex + (event.key === 'ArrowLeft' ? -1 : 1));
+    }
+  });
+  photoDialog.addEventListener('click', event => {
+    const bounds = photoDialog.getBoundingClientRect();
+    if (event.target === photoDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) photoDialog.close();
+  });
 }
